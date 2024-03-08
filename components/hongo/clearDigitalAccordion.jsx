@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-// import React from "react";
-// import { Accordion, AccordionItem } from "@nextui-org/react";
 import Image from "next/image";
-import Link from "next/link";
 import HongoStyle from "/styles/hongo.module.scss";
 
 const AccordionItem = ({ id, heading, paragraph, isOpen, toggleAccordion }) => {
