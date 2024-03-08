@@ -1,0 +1,107 @@
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.transparentsBtn {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  color: #212121;
+  font-family: sans-serif;
+  font-weight: 500;
+  background-color: transparent;
+  border: solid 2px #212121;
+  border-radius: 5px;
+  padding: 12px 20px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  z-index: 1;
+  &:hover {
+    background-color: #212121;
+    color: #fff;
+  }
+  @media (max-width: 768px) {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+.brightContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.blueBtn {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  background-color: #0164d3;
+  border: 1px solid #0164d3;
+  color: #fff !important;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-family: sans-serif;
+  font-weight: 400;
+  letter-spacing: 1.1px;
+  transition: background-color 0.3s ease-in-out;
+  z-index: 1;
+  &:hover {
+    background-color: rgba(1, 99, 211, 0.804);
+  }
+}
+.border_btn {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  background-color: transparent;
+  border: 1px solid #000;
+  color: #000;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-family: sans-serif;
+  font-weight: 400;
+  letter-spacing: 1.1px;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+  &:hover {
+    background-color: #ff4d7e;
+    color: #fff;
+    border: 1px solid #ff4d7e;
+  }
+}
+.wix_plan_menu {
+  position: relative;
+  width: fit-content;
+  padding-left: 25px;
+  &::before {
+    content: " ";
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #308081;
+  }
+  &::after {
+    content: " ";
+    position: absolute;
+    top: 5px;
+    left: 6px;
+    width: 4px;
+    height: 7px;
+    background-color: transparent;
+    border-bottom: solid 1px #fff;
+    border-right: solid 1px #fff;
+    transform: rotate(45deg);
+  }
+  &.black_icon {
+    &::before {
+      background-color: #000;
+    }
+  }
+}

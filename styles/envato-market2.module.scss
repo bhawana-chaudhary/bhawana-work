@@ -1,0 +1,325 @@
+.container {
+  width: 100%;
+  max-width: 1180px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.redirect_link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  text-decoration: none;
+  z-index: 2;
+}
+.banner_overlay {
+  position: relative;
+  &::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background-color: rgba(0, 29, 61, 0.74);
+    background-color: #001d3d;
+    opacity: 0.85;
+    z-index: 1;
+  }
+}
+.footer_overlay {
+  position: relative;
+  &::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #001d3d;
+    opacity: 0.91;
+    z-index: 1;
+  }
+}
+.orange_button {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  display: inline-block;
+  text-decoration: none;
+  background-color: rgb(232, 94, 6, 0.74);
+  border-radius: 40px;
+  padding: 22px 44px;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1;
+  &::after {
+    content: " ";
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    background-color: #e85d04;
+    border-radius: 40px;
+    @media (max-width: 1200px) {
+      top: 6px;
+      left: 6px;
+      width: calc(100% - 12px);
+      height: calc(100% - 12px);
+    }
+  }
+  &:hover {
+    transform: scale(1.05);
+  }
+  span {
+    position: relative;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    padding-left: 22px;
+    z-index: 1;
+    &::before {
+      content: " ";
+      position: absolute;
+      top: 1px;
+      left: 0;
+      width: 18px;
+      height: 18px;
+      background-image: url("/envato-market2/right-arrow-white.png");
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+    @media (max-width: 1200px) {
+      font-size: 14px;
+    }
+  }
+  &.white_button {
+    background-color: #9b9b9b;
+    &::after {
+      background-color: #cacaca;
+    }
+    span {
+      color: #000;
+      &::before {
+        background-image: url("/envato-market2/right-arrow-black.png");
+      }
+    }
+  }
+  &.dark_orange_borderBtn {
+    background-color: #9f3e00;
+  }
+  &.small_button {
+    border-radius: 30px;
+    padding: 18px 40px;
+    &::after {
+      top: 6px;
+      left: 6px;
+      width: calc(100% - 12px);
+      height: calc(100% - 12px);
+      border-radius: 30px;
+    }
+    @media (max-width: 1200px) {
+      padding: 15px 30px;
+    }
+    span {
+      font-size: 14px;
+    }
+  }
+  @media (max-width: 1200px) {
+    padding: 18px 30px;
+  }
+}
+.em2header_wrap {
+  li {
+    &:hover {
+      > a {
+        color: #e85e06;
+        &::after {
+          border-right: solid 1px #e85e06;
+          border-bottom: solid 1px #e85e06;
+        }
+      }
+      .sub_menu_wrapper {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    a {
+      transition: color 0.3s ease-in-out;
+    }
+  }
+  .header_menu {
+    > a {
+      position: relative;
+      padding-right: 15px;
+      &::after {
+        content: " ";
+        position: absolute;
+        top: 6px;
+        right: 0;
+        width: 7px;
+        height: 7px;
+        border-right: solid 1px #fff;
+        border-bottom: solid 1px #fff;
+        transform: rotate(45deg);
+        transition: border 0.3s ease-in-out;
+      }
+    }
+  }
+  .sub_menu_wrapper {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+  }
+}
+.banner_image_slider {
+  .slick-track {
+    height: 100%;
+  }
+  .bg_image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+    animation: animatImg 5.75s ease-in infinite;
+    // &.slick-current {
+    //   transform: scale(1.5);
+    // }
+    @keyframes animatImg {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+.bottom_image {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  // background-color: transparent;
+  display: flex;
+  z-index: 5;
+  @media (max-width: 768px) {
+    height: 40px;
+  }
+  .clip_image {
+    position: relative;
+    width: 50%;
+    // background-color: #fff;
+    clip-path: polygon(100% 0%, -4% 100%, 100% 100%);
+  }
+  .clip_image2 {
+    clip-path: polygon(0% 0%, 0% 100%, 104% 100%);
+  }
+}
+.top_image {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  // background-color: transparent;
+  display: flex;
+  z-index: 5;
+  @media (max-width: 768px) {
+    height: 40px;
+  }
+  .clip_image {
+    position: relative;
+    width: 50%;
+    // background-color: #fff;
+    clip-path: polygon(0% 0%, 0% 100%, 104% 0%);
+  }
+  .clip_image2 {
+    clip-path: polygon(-4% 0%, 100% 100%, 100% 0%);
+  }
+}
+.parallaxColThree {
+  .para_bg_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background-image: url("/envato-market2/cnc-laser-cutting-of-metal.jpeg");
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}
+.em2slider_wrap {
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e5e5e5;
+    opacity: 0.9;
+    // border-radius: 30px;
+  }
+}
+.parallaxIntro {
+  position: relative;
+  .para_bg_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background-image: url("/envato-market2/banner-bg-img2.jpeg");
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}
+.progressContainer {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  z-index: 1;
+  &::after {
+    content: " ";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: calc(100% - 24px);
+    height: calc(100% - 24px);
+    border: solid 6px #fff;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  .progressText {
+    fill: #fff;
+  }
+}
+
+.progressBar {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 0.5s ease-in-out;
+  border-radius: 10px;
+}
+.footer_bg_image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/envato-market2/img-sunset.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
