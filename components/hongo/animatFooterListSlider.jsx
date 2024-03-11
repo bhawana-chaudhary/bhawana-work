@@ -7,17 +7,17 @@ export default function AnimatFooterListSlider() {
   return (
     <>
       <section
-        className={`${HongoStyle.animatFooter_ListSlider} relative w-full bg-[#f6f7fb] py-[100px] `}
+        className={`${HongoStyle.animatFooter_ListSlider} relative w-full bg-[#f6f7fb] py-[100px] desktop:py-[80px] tablet:py-[70px] phablet:py-[60px] sm:py-[50px] `}
       >
         <div className={`${HongoStyle.container}`}>
-          <div className="intro relative w-full z-10  flex flex-wrap mb-12 ">
-            <div className="text relative w-[50%] pr-[30px] ">
-              <h2 className=" text-[55px] text-[#141416]  font-JakartaSans font-bold tracking-[-2px] leading-[55px] ">
+          <div className="intro relative w-full z-10  flex flex-wrap mb-12 desktop:mb-10 tablet:mb-8 phablet:mb-6 sm:mb-5 ">
+            <div className="text relative w-[50%] pr-[30px] lg:w-full lg:pr-0 lg:text-center lg:mb-5 ">
+              <h2 className=" text-[55px] text-[#141416]  font-JakartaSans font-bold tracking-[-2px] leading-[55px] desktop:text-[50px] desktop:leading-[50px] tablet:text-[45px] tablet:leading-[45px] phablet:text-[40px] phablet:leading-[40px] sm:text-[35px] sm:leading-[35px] ">
                 The biggest exclusive sections collection.
               </h2>
             </div>
-            <div className="content relative w-[50%] ">
-              <p className=" w-full max-w-[526px] text-[18px] leading-[30px] text-[#7F7F8A] font-figtree font-normal ">
+            <div className="content relative w-[50%] lg:w-full lg:text-center ">
+              <p className=" w-full max-w-[526px] text-[18px] leading-[30px] text-[#7F7F8A] font-figtree font-normal lg:max-w-full phablet:text-[17px] phablet:leading-[28px] sm:text-[16px] sm:leading-[25px] ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Necessitatibus, esse aut. Accusamus nobis fugit vero quaerat
                 laboriosam molestiae, porro excepturi quibusdam odit eligendi!

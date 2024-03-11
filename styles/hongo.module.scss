@@ -107,8 +107,30 @@
       .text {
         .bottom_text {
           margin-top: 4px;
+          @media (min-width: 596px) and (max-width: 768px) {
+            margin-top: 8px;
+          }
+          @media (max-width: 595px) {
+            margin-top: 10px;
+          }
         }
       }
+    }
+    @media (min-width: 992px) and (max-width: 1236px) {
+      padding: 22px 45px;
+      height: 70px;
+    }
+    @media (min-width: 769px) and (max-width: 991px) {
+      padding: 20px 40px;
+      height: 63px;
+    }
+    @media (min-width: 596px) and (max-width: 768px) {
+      padding: 19px 35px;
+      height: 58px;
+    }
+    @media (max-width: 595px) {
+      padding: 16px 30px;
+      height: 55px;
     }
     .text {
       padding-right: 0;
@@ -116,6 +138,18 @@
       border-right: none;
       span {
         font-size: 18px;
+        @media (min-width: 992px) and (max-width: 1236px) {
+          font-size: 17px;
+        }
+        @media (min-width: 769px) and (max-width: 991px) {
+          font-size: 16px;
+        }
+        @media (min-width: 596px) and (max-width: 768px) {
+          font-size: 15px;
+        }
+        @media (max-width: 595px) {
+          font-size: 14px;
+        }
       }
     }
     .icon {
@@ -123,6 +157,10 @@
       max-width: 24px;
       height: 30px;
       margin-right: 8px;
+      @media (max-width: 768px) {
+        max-width: 22px;
+        height: 25px;
+      }
     }
   }
 }
@@ -487,6 +525,15 @@
         &::before {
           display: none;
         }
+        @media (min-width: 769px) and (max-width: 991px) {
+          margin: 0 20px;
+        }
+        @media (min-width: 596px) and (max-width: 768px) {
+          margin: 0 15px;
+        }
+        @media (max-width: 595px) {
+          margin: 0 10px;
+        }
       }
     }
   }
@@ -620,13 +667,3 @@
     z-index: 11;
   }
 }
-
-// .wrap {
-//   transition: max-height 0.3s ease-out;
-//   max-height: 50px;
-//   overflow: hidden;
-
-//   &.open {
-//     max-height: 1000px;
-//   }
-// }

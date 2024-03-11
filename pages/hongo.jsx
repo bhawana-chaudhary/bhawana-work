@@ -21,6 +21,7 @@ import HongoFooter from "../components/hongo/hongoFooter";
 import ScrollDownColTwo from "../components/hongo/scrollDownColTwo";
 import FooterLogoSlider from "../components/hongo/footerLogoSlider";
 import ClearDigitalAccordion from "../components/hongo/clearDigitalAccordion";
+import ClearDigitalFilter from "../components/clearDigital/clearDigitalFilter";
 
 const FontStyles = () => (
   <Head>
@@ -43,6 +44,7 @@ export default function Hongo() {
       <HongoVideoOverlay />
       <ColFourCardWrapper />
       <HongoProductBundle />
+      <ClearDigitalFilter />
       <HongoCardGrid />
       <HongoCardSlider />
       <HongoScrollWrapper />
