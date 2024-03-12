@@ -667,3 +667,15 @@
     z-index: 11;
   }
 }
+.clearDigital_Filter_search {
+  &::-webkit-search-cancel-button {
+    // display: none;
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    background-image: url("/clearDigital/icon-close-white.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1;
+  }
+}
