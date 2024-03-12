@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import ClearDigitalFilter from "../components/clearDigital/clearDigitalFilter";
 import ScrollDownColTwo from "../components/hongo/scrollDownColTwo";
-import FooterLogoSlider from "../components/hongo/footerLogoSlider";
-import ClearDigitalAccordion from "../components/hongo/clearDigitalAccordion";
+import FooterLogoSlider from "../components/clearDigital/footerLogoSlider";
+import ClearDigitalAccordion from "../components/clearDigital/clearDigitalAccordion";
 
 const FontStyles = () => (
   <Head>

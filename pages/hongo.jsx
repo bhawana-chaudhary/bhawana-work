@@ -19,9 +19,6 @@ import IntroWithAnimat4Slider from "../components/hongo/introWithAnimat4Slider";
 import AnimatFooterListSlider from "../components/hongo/animatFooterListSlider";
 import HongoFooter from "../components/hongo/hongoFooter";
 import ScrollDownColTwo from "../components/hongo/scrollDownColTwo";
-import FooterLogoSlider from "../components/hongo/footerLogoSlider";
-import ClearDigitalAccordion from "../components/hongo/clearDigitalAccordion";
-import ClearDigitalFilter from "../components/clearDigital/clearDigitalFilter";
 
 const FontStyles = () => (
   <Head>
@@ -44,19 +41,16 @@ export default function Hongo() {
       <HongoVideoOverlay />
       <ColFourCardWrapper />
       <HongoProductBundle />
-      <ClearDigitalFilter />
       <HongoCardGrid />
       <HongoCardSlider />
       <HongoScrollWrapper />
       <HongoContentWithImg />
       <HongoTextSlider />
       <HongoCardSlider2 />
-      <ClearDigitalAccordion />
       <IntroWithAnimat4Slider />
       <ScrollDownColTwo />
       <AnimatFooterListSlider />
       <HongoFooter />
-      <FooterLogoSlider />
     </>
   );
 }

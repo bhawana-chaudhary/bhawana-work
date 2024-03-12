@@ -156,7 +156,7 @@ export default function ColThreeCardWrapper() {
                   .
                 </Link>
                 <div className="card_img relative w-full h-[386px] mb-[10px] rounded-[4px] overflow-hidden ">
-                  <img
+                  <Image
                     src={hongoCol3card.imageUrl}
                     width={500}
                     height={500}
