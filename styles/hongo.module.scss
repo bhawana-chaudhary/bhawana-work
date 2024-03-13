@@ -10,6 +10,12 @@
   padding: 0 20px;
   margin: 0 auto;
 }
+.clearDigital_container {
+  width: 100%;
+  max-width: 1450px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
 .redirect_link {
   position: absolute;
   top: 0;
@@ -677,5 +683,68 @@
     background-repeat: no-repeat;
     background-size: contain;
     z-index: 1;
+  }
+}
+.clearDigital_textButton {
+  position: relative;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  padding-right: 25px;
+  &::after {
+    content: " ";
+    position: absolute;
+    bottom: 3px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background-image: url("/clearDigital/arrow_right.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: right 0.3s ease-in-out;
+  }
+  &:hover {
+    &::after {
+      right: 10px;
+    }
+  }
+}
+.clearDigital_pinkButton {
+  position: relative;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  padding: 15px 20px;
+  text-align: center;
+  background-color: #fa198c;
+}
+.clearDigital_card4title {
+  position: relative;
+  &::before {
+    content: " ";
+    position: absolute;
+    top: 5px;
+    right: 45px;
+    width: 84px;
+    height: 80px;
+    background-image: url("/clearDigital/email_img.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+  &::after {
+    content: " ";
+    position: absolute;
+    bottom: 124px;
+    right: 28px;
+    width: 74px;
+    height: 94px;
+    background-image: url("/clearDigital/arrow_down_img.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
   }
 }

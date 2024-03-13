@@ -31,7 +31,7 @@ export default function AnimatFooterListSlider() {
           <div className={`${HongoStyle.animation_wrap} relative flex `}>
             <ul className={` ${HongoStyle.animation_item}`}>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img1.jpeg"
                     width={600}
@@ -42,7 +42,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img2.jpeg"
                     width={600}
@@ -53,7 +53,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img3.jpeg"
                     width={600}
@@ -64,7 +64,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img4.jpeg"
                     width={600}
@@ -75,7 +75,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img5.jpeg"
                     width={600}
@@ -86,7 +86,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img6.jpeg"
                     width={600}
@@ -97,7 +97,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img7.jpeg"
                     width={600}
@@ -108,7 +108,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img8.jpeg"
                     width={600}
@@ -119,7 +119,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img9.jpeg"
                     width={600}
@@ -130,7 +130,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img10.jpeg"
                     width={600}
@@ -141,7 +141,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img11.jpeg"
                     width={600}
@@ -152,7 +152,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img12.jpeg"
                     width={600}
@@ -163,7 +163,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img13.jpeg"
                     width={600}
@@ -174,7 +174,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img14.jpeg"
                     width={600}
@@ -187,7 +187,7 @@ export default function AnimatFooterListSlider() {
             </ul>
             <ul className={` ${HongoStyle.animation_item}`}>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img1.jpeg"
                     width={600}
@@ -198,7 +198,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img2.jpeg"
                     width={600}
@@ -209,7 +209,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img3.jpeg"
                     width={600}
@@ -220,7 +220,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img4.jpeg"
                     width={600}
@@ -231,7 +231,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img5.jpeg"
                     width={600}
@@ -242,7 +242,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img6.jpeg"
                     width={600}
@@ -253,7 +253,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img7.jpeg"
                     width={600}
@@ -264,7 +264,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img8.jpeg"
                     width={600}
@@ -275,7 +275,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img9.jpeg"
                     width={600}
@@ -286,7 +286,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img10.jpeg"
                     width={600}
@@ -297,7 +297,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img11.jpeg"
                     width={600}
@@ -308,7 +308,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img12.jpeg"
                     width={600}
@@ -319,7 +319,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img13.jpeg"
                     width={600}
@@ -330,7 +330,7 @@ export default function AnimatFooterListSlider() {
                 </div>
               </li>
               <li className={`${HongoStyle.header_animatList} `}>
-                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] ">
+                <div className="image_wrap min-w-[522px] h-full max-h-[1061px] tablet:min-w-[470px] tablet:max-h-[966px] md:min-w-[380px] md:max-h-[780px] sm:min-w-[320px] sm:max-h-[700px] ">
                   <Image
                     src="/hongo/hongo-list-slide-img14.jpeg"
                     width={600}

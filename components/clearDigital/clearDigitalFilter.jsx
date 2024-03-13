@@ -11,6 +11,7 @@ const filtercardData = [
     cardTitle: "Ensure Your Brand’s Direction by Auditing These 5 Key Areas...",
     cardParagraph:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, officiis? Dignissimos neque delectus veniam vitae voluptas? Reiciendis voluptate laborum maiores!",
+    btn: "Read more",
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const filtercardData = [
     cardTitle: "The Power of Femininity in Leadership",
     cardParagraph:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, officiis? Dignissimos neque delectus veniam vitae voluptas? Reiciendis voluptate laborum maiores!",
+    btn: "Read more",
   },
   {
     id: 3,
@@ -25,11 +27,13 @@ const filtercardData = [
     cardTitle:
       "5 Strategies Your B2B Company Should Apply to Weather a Tough Economy",
     cardParagraph: "By Steve Ohanians on August 18, 2023",
+    btn: "Read more",
   },
   {
     id: 4,
     imgUrl: "/clearDigital/card_grid_img.svg",
-    cardTitle: "The Power of Femininity in Leadership",
+    filterCard4: true,
+    card4title: "Get our latest Insights in your inbox",
   },
   {
     id: 5,
@@ -37,6 +41,7 @@ const filtercardData = [
     cardTitle: "Ensure Your Brand’s Direction by Auditing These 5 Key Areas...",
     cardParagraph:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, officiis? Dignissimos neque delectus veniam vitae voluptas? Reiciendis voluptate laborum maiores!",
+    btn: "Read more",
   },
   {
     id: 6,
@@ -44,6 +49,7 @@ const filtercardData = [
     cardTitle: "The Power of Femininity in Leadership",
     cardParagraph:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, officiis? Dignissimos neque delectus veniam vitae voluptas? Reiciendis voluptate laborum maiores!",
+    btn: "Read more",
   },
   {
     id: 7,
@@ -51,6 +57,7 @@ const filtercardData = [
     cardTitle:
       "5 Strategies Your B2B Company Should Apply to Weather a Tough Economy",
     cardParagraph: "By Steve Ohanians on August 18, 2023",
+    btn: "Read more",
   },
   {
     id: 8,
@@ -58,6 +65,7 @@ const filtercardData = [
     cardTitle: "Ensure Your Brand’s Direction by Auditing These 5 Key Areas...",
     cardParagraph:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, officiis? Dignissimos neque delectus veniam vitae voluptas? Reiciendis voluptate laborum maiores!",
+    btn: "Read more",
   },
 ];
 
@@ -123,7 +131,7 @@ export default function ClearDigitalFilter() {
   return (
     <>
       <section className=" clearDigital_Filter relative w-full py-[100px] bg-[#090914] ">
-        <div className={`${HongoStyle.container_big}`}>
+        <div className={`${HongoStyle.clearDigital_container}`}>
           <div className=" clearDigital_FilterWrap relative w-full flex flex-wrap  ">
             <div className="filter_header relative w-full max-w-[407px] ">
               <div className="search_wrap relative w-full mb-[30px] ">
@@ -326,13 +334,19 @@ export default function ClearDigitalFilter() {
               <div className="card_wrapper relative w-mainRow ml-[-15px] flex flex-wrap ">
                 {filtercardData.map((filterCard) => (
                   <div
-                    className="filter_card group relative w-halfWidth mx-[15px] mb-[30px] "
+                    className={`filter_card group ${
+                      filterCard.filterCard4 === true
+                        ? " before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:border-[5px] before:border-solid before:border-[#fa198c] "
+                        : ""
+                    } relative w-halfWidth mx-[15px] mb-[30px] `}
                     key={filterCard.id}
                   >
-                    <div className="wrapper relative w-full min-h-[552px] flex flex-wrap items-end ">
+                    <div className="wrapper relative w-full min-h-[450px] flex flex-wrap items-end ">
                       <Link
                         href="/"
-                        className={`${HongoStyle.redirect_link} z-10`}
+                        className={`${HongoStyle.redirect_link} ${
+                          filterCard.filterCard4 === true ? " hidden " : ""
+                        } z-10`}
                       >
                         .
                       </Link>
@@ -345,15 +359,44 @@ export default function ClearDigitalFilter() {
                           className=" w-full h-full object-cover "
                         />
                       </div>
-                      <div className="card_content relative p-[50px] bg-[#00000080] z-[1] ">
+                      <div
+                        className={` ${
+                          filterCard.filterCard4 === true ? " hidden " : ""
+                        } card_content relative p-[50px] z-[1] group-hover:static transition duration-500 ease-in-out before:[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-[#00000080] before:transition before:duration-500 before:ease-in-out before:z-[-1]  `}
+                      >
                         <h3 className=" text-white text-[30px] font-bold font-poppins leading-[39px] overflow-ellipsis line-clamp-3 transition-all duration-500 ease-in-out group-hover:overflow-visible group-hover:line-clamp-none ">
                           {filterCard.cardTitle}
                         </h3>
-                        <div className="text relative w-full mt-5 h-full max-h-0 transition-all duration-500 ease-in-out  overflow-hidden group-hover:max-h-[1000px] group-hover:will-change-auto ">
-                          <p className=" text-white text-[16px] font-normal font-poppins leading-[24px] opacity-0 group-hover:opacity-[1] transition-opacity duration-500 ease-in-out ">
+                        <div className="text relative w-full  h-full max-h-0 transition-all duration-500 ease-in-out  overflow-hidden group-hover:mt-5 group-hover:max-h-[1000px] ">
+                          <p className=" text-white text-[16px] font-normal font-poppins leading-[24px] opacity-0 group-hover:opacity-[1] transition-opacity duration-500 ease-in-out mb-5 ">
                             {filterCard.cardParagraph}
                           </p>
+                          <span
+                            className={`${HongoStyle.clearDigital_textButton}`}
+                          >
+                            {filterCard.btn}
+                          </span>
                         </div>
+                      </div>
+                      <div
+                        className={` ${
+                          filterCard.filterCard4 === true
+                            ? " block "
+                            : " hidden "
+                        } ${
+                          HongoStyle.clearDigital_card4title
+                        } filter4card_content relative w-full px-[45px] py-[35px] `}
+                      >
+                        <h2
+                          className={` w-full max-w-[349px] text-white text-[55px] leading-[61px] font-poppins font-bold mb-[50px] `}
+                        >
+                          {filterCard.card4title}
+                        </h2>
+                        <span
+                          className={`${HongoStyle.clearDigital_pinkButton} inline-block w-full cursor-pointer`}
+                        >
+                          Sign up
+                        </span>
                       </div>
                     </div>
                   </div>

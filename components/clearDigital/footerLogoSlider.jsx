@@ -7,7 +7,7 @@ export default function FooterLogoSlider() {
   return (
     <>
       <section
-        className={` footerLogo_Slider relative w-full pb-[100px] bg-[url('/hongo/hongo-shopify-footer-bg.jpeg')] desktop:pb-[80px] tablet:pb-[70px] phablet:pb-[60px] sm:pb-[50px] `}
+        className={` footerLogo_Slider relative w-full pb-[100px] bg-[#090914] desktop:pb-[80px] tablet:pb-[70px] phablet:pb-[60px] sm:pb-[50px] `}
       >
         <div
           className={`${HongoStyle.animation_slider} ${HongoStyle.footerLogo_animatSlider} relative overflow-hidden py-[14px] `}
