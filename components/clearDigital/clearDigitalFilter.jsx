@@ -86,47 +86,86 @@ export default function ClearDigitalFilter() {
   //     });
   //   });
   // }, []);
-
   useEffect(() => {
+    const searchWrap = document.querySelector(".search_wrap");
+    const searchIcon = document.querySelector(".search_icon");
     const searchInput = document.getElementById("fSearch");
     const filterCards = document.querySelectorAll(".filter_card");
+    const searchDataCount = document.querySelector(".filter_searchData h6");
+    const clearAllButton = document.querySelector(".filter_searchData span");
 
-    if (searchInput) {
-      searchInput.addEventListener("keyup", function (event) {
-        const value = event.target.value.toLowerCase();
-        filterCards.forEach((card) => {
-          const cardText = card.innerText.toLowerCase();
-          if (cardText.includes(value) || value === "") {
-            card.style.display = "block";
-          } else {
-            card.style.display = "none";
-          }
-        });
-        // filterCards.forEach((card) => {
-        //   const cardText = card.innerText.toLowerCase();
-        //   if (cardText.includes(value) || value === "") {
-        //     card.style.display = "block";
-        //     $(this).closest(".search_icon").hide;
-        //   } else {
-        //     card.style.display = "none";
-        //     $(this).closest(".search_icon").show;
-        //   }
-        // });
+    const handleSearch = () => {
+      const value = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0; // Counter for visible cards
+
+      filterCards.forEach((card) => {
+        const cardText = card.innerText.toLowerCase();
+        if (cardText.includes(value) || value === "") {
+          card.style.display = "block";
+          visibleCount++; // Increment visible count
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      // Update the count display
+      if (searchDataCount) {
+        searchDataCount.textContent = `${visibleCount} result${
+          visibleCount !== 1 ? "s" : ""
+        }`;
+      }
+
+      // Show or hide search icon based on input value
+      if (searchIcon) {
+        if (value !== "") {
+          searchIcon.style.display = "none";
+        } else {
+          searchIcon.style.display = "block";
+        }
+      }
+    };
+
+    const clearAll = () => {
+      // Clear search input
+      if (searchInput) {
+        searchInput.value = "";
+        // Trigger input event to update filtering
+        searchInput.dispatchEvent(new Event("input"));
+      }
+    };
+
+    if (searchWrap) {
+      searchWrap.addEventListener("click", () => {
+        if (searchIcon) {
+          searchIcon.style.display = "none";
+        }
       });
     }
 
+    if (searchInput) {
+      searchInput.addEventListener("input", handleSearch);
+    }
+
+    if (clearAllButton) {
+      clearAllButton.addEventListener("click", clearAll);
+    }
+
+    // Initial call to handle search
+    handleSearch();
+
     return () => {
+      // Clean up event listeners
       if (searchInput) {
-        searchInput.removeEventListener("keyup");
+        searchInput.removeEventListener("input", handleSearch);
+      }
+      if (clearAllButton) {
+        clearAllButton.removeEventListener("click", clearAll);
+      }
+      if (searchWrap) {
+        searchWrap.removeEventListener("click");
       }
     };
   }, []);
-  const showAllCards = () => {
-    const filterCards = document.querySelectorAll(".filter_card");
-    filterCards.forEach((card) => {
-      card.style.display = "block";
-    });
-  };
 
   return (
     <>
@@ -138,12 +177,22 @@ export default function ClearDigitalFilter() {
                 <input
                   type="search"
                   id="fSearch"
-                  className={`${HongoStyle.clearDigital_Filter_search} relative w-full bg-transparent border-white border-[2px] border-solid text-[16px] font-medium font-poppins py-[21px] pl-[15px] pr-[40px] text-white outline-none `}
+                  className={`${HongoStyle.clearDigital_Filter_search} relative w-full bg-transparent border-white border-[2px] border-solid text-[16px] font-medium font-poppins py-[21px] pl-[15px] pr-[15px] text-white outline-none `}
+                  // value={searchValue}
+                  // onChange={(e) => {
+                  //   setSearchValue(e.target.value);
+                  //   if (e.target.value === "") {
+                  //     showAllCards();
+                  //   }
+                  // }}
                   value={searchValue}
                   onChange={(e) => {
                     setSearchValue(e.target.value);
                     if (e.target.value === "") {
-                      showAllCards();
+                      const searchIcon = document.querySelector(".search_icon");
+                      if (searchIcon) {
+                        searchIcon.style.display = "block";
+                      }
                     }
                   }}
                 />
@@ -181,8 +230,8 @@ export default function ClearDigitalFilter() {
               <ul className=" filter_list_item relative w-full list-none ">
                 <li className=" relative w-full border-t-[1px] border-t-[#989898] border-solid pt-[30px] px-10 mb-[30px] ">
                   <span
-                    className={`text-white text-[16px] font-bold font-poppins leading-[20px] relative w-full inline-block after:content-[''] after:absolute after:top-[0] after:right-[0] after:w-[24px] after:h-[24px] after:bg-[url('/clearDigital/arrow-up.svg')] after:bg-no-repeat after:bg-contain ${
-                      openAccordionIndex === 0 ? "after:rotate-180" : ""
+                    className={`text-white text-[16px] font-bold font-poppins leading-[20px] relative w-full inline-block after:content-[''] after:absolute after:top-[0] after:right-[0] after:w-[24px] after:h-[24px] after:bg-[url('/clearDigital/arrow-up.svg')] after:bg-no-repeat after:bg-contain after:rotate-180 ${
+                      openAccordionIndex === 0 ? "after:rotate-0" : ""
                     }`}
                     onClick={() => toggleAccordion(0)}
                   >
@@ -229,8 +278,8 @@ export default function ClearDigitalFilter() {
                 </li>
                 <li className=" relative w-full border-t-[1px] border-t-[#989898] border-solid pt-[30px] px-10 mb-[30px] ">
                   <span
-                    className={`text-white text-[16px] font-bold font-poppins leading-[20px] relative w-full inline-block after:content-[''] after:absolute after:top-[0] after:right-[0] after:w-[24px] after:h-[24px] after:bg-[url('/clearDigital/arrow-up.svg')] after:bg-no-repeat after:bg-contain ${
-                      openAccordionIndex === 1 ? "after:rotate-180" : ""
+                    className={`text-white text-[16px] font-bold font-poppins leading-[20px] relative w-full inline-block after:content-[''] after:absolute after:top-[0] after:right-[0] after:w-[24px] after:h-[24px] after:bg-[url('/clearDigital/arrow-up.svg')] after:bg-no-repeat after:bg-contain after:rotate-180 ${
+                      openAccordionIndex === 1 ? "after:rotate-0" : ""
                     }`}
                     onClick={() => toggleAccordion(1)}
                   >
@@ -277,8 +326,8 @@ export default function ClearDigitalFilter() {
                 </li>
                 <li className=" relative w-full border-t-[1px] border-t-[#989898] border-solid pt-[30px] px-10 mb-[30px] ">
                   <span
-                    className={`text-white text-[16px] font-bold font-poppins leading-[20px] relative w-full inline-block after:content-[''] after:absolute after:top-[0] after:right-[0] after:w-[24px] after:h-[24px] after:bg-[url('/clearDigital/arrow-up.svg')] after:bg-no-repeat after:bg-contain ${
-                      openAccordionIndex === 2 ? "after:rotate-180" : ""
+                    className={`text-white text-[16px] font-bold font-poppins leading-[20px] relative w-full inline-block after:content-[''] after:absolute after:top-[0] after:right-[0] after:w-[24px] after:h-[24px] after:bg-[url('/clearDigital/arrow-up.svg')] after:bg-no-repeat after:bg-contain after:rotate-180 ${
+                      openAccordionIndex === 2 ? "after:rotate-0" : ""
                     }`}
                     onClick={() => toggleAccordion(2)}
                   >

@@ -722,6 +722,12 @@
   padding: 15px 20px;
   text-align: center;
   background-color: #fa198c;
+  border: solid 2px #fa198c;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: transparent;
+    color: #fa198c;
+  }
 }
 .clearDigital_card4title {
   position: relative;
