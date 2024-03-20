@@ -6,6 +6,7 @@ import ClearDigitalFilter from "../components/clearDigital/clearDigitalFilter";
 import ScrollDownColTwo from "../components/hongo/scrollDownColTwo";
 import FooterLogoSlider from "../components/clearDigital/footerLogoSlider";
 import ClearDigitalAccordion from "../components/clearDigital/clearDigitalAccordion";
+import FooterCTA from "../components/clearDigital/footerCTA";
 
 const FontStyles = () => (
   <Head>
@@ -26,6 +27,7 @@ export default function ClearDigital() {
       <FooterLogoSlider />
       <ScrollDownColTwo />
       <ClearDigitalFilter />
+      <FooterCTA />
     </>
   );
 }
