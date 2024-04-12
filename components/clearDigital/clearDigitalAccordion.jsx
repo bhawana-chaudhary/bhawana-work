@@ -5,12 +5,12 @@ import HongoStyle from "/styles/hongo.module.scss";
 const AccordionItem = ({ id, heading, paragraph, isOpen, toggleAccordion }) => {
   return (
     <div
-      className={` wrap relative w-full py-7 border-b-[1.5px] border-solid border-b-[#7f7f8a61] cursor-pointer over ${
+      className={` wrap relative w-full py-7 border-b-[1.5px] border-solid border-b-[#7f7f8a61] cursor-pointer over desktop:py-6 tablet:py-[22px] phablet:py-5 md:py-4 ${
         isOpen ? "open" : ""
       }`}
       onClick={() => toggleAccordion(id)}
     >
-      <h4 className="text-[30px] text-white font-JakartaSans font-medium leading-[35px] ">
+      <h4 className="text-[30px] text-white font-JakartaSans font-medium leading-[35px] desktop:text-[26px] desktop:leading-[32px] tablet:text-[24px] tablet:leading-[30px] phablet:text-[22px] phablet:leading-[26px] md:text-[20px] md:leading-[24px] ">
         {heading}
       </h4>
       <div
@@ -20,7 +20,7 @@ const AccordionItem = ({ id, heading, paragraph, isOpen, toggleAccordion }) => {
             : "h-0 opacity-0  mt-0 overflow-y-hidden "
         } text relative w-full pr-5  transition-all duration-500 ease-in-out`}
       >
-        <p className="text-white text-[20px] font-JakartaSans font-normal tracking-[1px] leading-[1.4]">
+        <p className="text-white text-[20px] font-JakartaSans font-normal tracking-[1px] leading-[1.4] tablet:text-[18px] tablet:leading-[1.3] phablet:text-[17px] phablet:leading-[1.2] md:text-[16px] md:leading-[1.1] md:font-light ">
           {paragraph}
         </p>
       </div>
@@ -70,14 +70,14 @@ export default function ClearDigitalAccordion() {
   return (
     <>
       <section
-        className={` clearDigital_Accordion relative w-full py-[100px] bg-[#090914] `}
+        className={` clearDigital_Accordion relative w-full py-[100px] bg-[#090914] tablet:py-[80px] phablet:py-[60px] md:py-[45px] `}
       >
         <div className={`${HongoStyle.container_big}`}>
           <div className=" relative w-full max-w-[1410px] mx-auto ">
-            <div className="accordion_wrapper relative  w-[calc(100%+24px)] ml-[-12px] flex flex-wrap ">
-              <div className="col_two w-[calc(50%-24px)] mx-3 ">
-                <div className="accordion_wrap relative w-full max-w-[600px] ">
-                  <h2 className=" text-[55px] text-white font-JakartaSans font-bold tracking-[-2px] leading-[60px] mb-5 desktop:text-[45px] desktop:leading-[50px] tablet:text-[40px] tablet:leading-[45px] lg:mb-10 md:text-[36px] md:leading-[40px] xs:text-[32px] xs:leading-[36px] ">
+            <div className="accordion_wrapper relative  w-[calc(100%+24px)] ml-[-12px] flex flex-wrap lg:w-full lg:mx-0 ">
+              <div className="col_two w-[calc(50%-24px)] mx-3 lg:w-full lg:mx-0 lg:mb-8 ">
+                <div className="accordion_wrap relative w-full max-w-[600px] lg:max-w-full ">
+                  <h2 className=" text-[55px] text-white font-JakartaSans font-bold tracking-[-2px] leading-[60px] mb-5 desktop:text-[45px] desktop:leading-[50px] tablet:text-[40px] tablet:leading-[45px] md:text-[36px] md:leading-[40px] xs:text-[32px] xs:leading-[36px] ">
                     A Full Suite of Brand Strategy Solutions
                   </h2>
                   {/* <div className="accordion relative w-full ">
@@ -111,8 +111,8 @@ export default function ClearDigitalAccordion() {
                   </div>
                 </div>
               </div>
-              <div className="col_two w-[calc(50%-24px)] mx-3 ">
-                <div className="image_wrap relative w-full max-w-[670px] h-full max-h-[641px] ">
+              <div className="col_two w-[calc(50%-24px)] mx-3 lg:w-full lg:mx-0 ">
+                <div className="image_wrap relative w-full max-w-[670px] max-h-[641px] ">
                   <Image
                     src="/hongo/strategy-services.png"
                     width={900}
