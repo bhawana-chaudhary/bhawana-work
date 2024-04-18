@@ -82,6 +82,8 @@ module.exports = {
         figtree: "Figtree, sans-serif",
         playfairDisplay: "Playfair Display, serif",
         poppins: "Poppins, sans-serif",
+        nanumMyeongjo: "Nanum Myeongjo, serif",
+        nunitoSans: "Nunito Sans, sans-serif",
       },
       backgroundImage: {
         'gradient-linear': 'linear-gradient(to top, rgba(32, 22, 84, 0.6), rgba(0, 0, 100, 0) 72%)',
