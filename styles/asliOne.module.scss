@@ -104,8 +104,8 @@
     transform: rotate(-2deg);
 
     ellipse {
-      stroke-dashoffset: 1200;
-      stroke-dasharray: 1200;
+      stroke-dashoffset: 1270;
+      stroke-dasharray: 1270;
       transition: stroke-dashoffset 0.9s ease-in-out;
       &.slide-animation {
         stroke-dashoffset: 0;
@@ -257,5 +257,20 @@
     // 100% {
     //   transform: translateX(-100%);
     // }
+  }
+}
+.scroll_imageCard_list {
+  position: relative;
+  padding-left: 16px;
+  margin-left: 16px;
+  &::before {
+    content: "/";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    font-size: 14px;
+    color: #fdf9cf;
   }
 }

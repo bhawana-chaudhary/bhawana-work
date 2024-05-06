@@ -7,9 +7,9 @@ export default function AnimatScrollText() {
     <>
       <section className={`asliTextSlider relative w-full bg-[#777777] `}>
         <div
-          className={`${Style.animatScroll_Text} relative bg-transparent overflow-hidden py-[14px] `}
+          className={`${Style.animatScroll_Text} relative bg-transparent overflow-hidden `}
         >
-          <div className="text_wrapper relative w-full max-w-[1520px] mx-auto text-center px-[100px] mb-5 ">
+          <div className="text_wrapper relative w-full max-w-[1520px] mx-auto text-center px-[100px] mb-8 ">
             <h6 className=" text-[#fdf9cf] text-[20px] font-nunitoSans font-bold ">
               <span>(</span> WebGL Sliders & Infinite Scrolling <span>)</span>
             </h6>
@@ -27,7 +27,13 @@ export default function AnimatScrollText() {
               <h2>Fullscreen Portfolio</h2>
               <h2>/</h2>
             </div>
-            <div className={` ${Style.animation_item}`}>
+            <div
+              className={` ${Style.animation_item} ${
+                isHovered ? Style.animatwrap_hovered : ""
+              }`}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
               <h2>Fullscreen Portfolio</h2>
               <h2>/</h2>
               <h2>Fullscreen Portfolio</h2>

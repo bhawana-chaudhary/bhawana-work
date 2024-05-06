@@ -564,7 +564,7 @@ export default function AsliBanner({ curvedSvgText, setIsHovered }) {
             <div className={`relative w-full`}>
               <div className={` image w-full min-h-fit p-2 `}>
                 <Image
-                  src="/asli/banner_img_1.webp"
+                  src="/asli/banner_img4_1.webp"
                   width={400}
                   height={800}
                   alt="img"
@@ -574,7 +574,7 @@ export default function AsliBanner({ curvedSvgText, setIsHovered }) {
               </div>
               <div className={` image w-full min-h-fit p-2 `}>
                 <Image
-                  src="/asli/banner_img_2.webp"
+                  src="/asli/banner_img4_2.webp"
                   width={400}
                   height={800}
                   alt="img"
@@ -584,7 +584,7 @@ export default function AsliBanner({ curvedSvgText, setIsHovered }) {
               </div>
               <div className={` image w-full min-h-fit p-2 `}>
                 <Image
-                  src="/asli/banner_img_3.webp"
+                  src="/asli/banner_img4_3.webp"
                   width={400}
                   height={800}
                   alt="img"
@@ -594,7 +594,7 @@ export default function AsliBanner({ curvedSvgText, setIsHovered }) {
               </div>
               <div className={` image w-full min-h-fit p-2 `}>
                 <Image
-                  src="/asli/banner_img_4.webp"
+                  src="/asli/banner_img4_4.webp"
                   width={400}
                   height={800}
                   alt="img"
@@ -604,7 +604,17 @@ export default function AsliBanner({ curvedSvgText, setIsHovered }) {
               </div>
               <div className={` image w-full min-h-fit p-2 `}>
                 <Image
-                  src="/asli/banner_img_5.webp"
+                  src="/asli/banner_img4_5.webp"
+                  width={400}
+                  height={800}
+                  alt="img"
+                  loading="lazy"
+                  className=" w-full h-full object-cover "
+                />
+              </div>
+              <div className={` image w-full min-h-fit p-2 `}>
+                <Image
+                  src="/asli/banner_img4_6.webp"
                   width={400}
                   height={800}
                   alt="img"
@@ -616,7 +626,7 @@ export default function AsliBanner({ curvedSvgText, setIsHovered }) {
             <div className={`relative w-full`}>
               <div className={` image w-full min-h-fit p-2 `}>
                 <Image
-                  src="/asli/banner_img_1.webp"
+                  src="/asli/banner_img4_1.webp"
                   width={400}
                   height={800}
                   alt="img"
@@ -626,7 +636,7 @@ export default function AsliBanner({ curvedSvgText, setIsHovered }) {
               </div>
               <div className={` image w-full min-h-fit p-2 `}>
                 <Image
-                  src="/asli/banner_img_2.webp"
+                  src="/asli/banner_img4_2.webp"
                   width={400}
                   height={800}
                   alt="img"
@@ -636,7 +646,7 @@ export default function AsliBanner({ curvedSvgText, setIsHovered }) {
               </div>
               <div className={` image w-full min-h-fit p-2 `}>
                 <Image
-                  src="/asli/banner_img_3.webp"
+                  src="/asli/banner_img4_3.webp"
                   width={400}
                   height={800}
                   alt="img"
@@ -646,7 +656,7 @@ export default function AsliBanner({ curvedSvgText, setIsHovered }) {
               </div>
               <div className={` image w-full min-h-fit p-2 `}>
                 <Image
-                  src="/asli/banner_img_4.webp"
+                  src="/asli/banner_img4_4.webp"
                   width={400}
                   height={800}
                   alt="img"
@@ -656,7 +666,17 @@ export default function AsliBanner({ curvedSvgText, setIsHovered }) {
               </div>
               <div className={` image w-full min-h-fit p-2 `}>
                 <Image
-                  src="/asli/banner_img_5.webp"
+                  src="/asli/banner_img4_5.webp"
+                  width={400}
+                  height={800}
+                  alt="img"
+                  loading="lazy"
+                  className=" w-full h-full object-cover "
+                />
+              </div>
+              <div className={` image w-full min-h-fit p-2 `}>
+                <Image
+                  src="/asli/banner_img4_6.webp"
                   width={400}
                   height={800}
                   alt="img"

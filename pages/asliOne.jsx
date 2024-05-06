@@ -7,6 +7,8 @@ import Banner from "../components/asliOne/AsliBanner";
 import Intro from "../components/asliOne/Intro";
 import ScrollWrap from "../components/asliOne/CircleScrollWrap";
 import AnimatScrollText from "../components/asliOne/AnimatScrollText";
+import ColThreeCard from "../components/asliOne/ColThreeCard";
+import AnimatScrollSlider from "../components/asliOne/AnimatScrollSlider";
 
 const FontStyles = () => (
   <Head>
@@ -21,6 +23,7 @@ const FontStyles = () => (
 
 export default function AsliOne() {
   const [isHovered, setIsHovered] = useState(false);
+  const [isCardHovered, setIsCardHovered] = useState(false);
 
   const [cursorPosition, setCursorPosition] = useState({
     x: 0,
@@ -52,6 +55,17 @@ export default function AsliOne() {
     };
   }, []);
 
+  const [bodyBackgroundColor, setBodyBackgroundColor] = useState("#777777");
+  const changeBodyBackgroundColor = (color) => {
+    document.body.style.backgroundColor = color;
+  };
+  useEffect(() => {
+    changeBodyBackgroundColor(bodyBackgroundColor);
+    return () => {
+      document.body.style.backgroundColor = "";
+    };
+  }, [bodyBackgroundColor]);
+
   return (
     <>
       <FontStyles />
@@ -59,9 +73,17 @@ export default function AsliOne() {
       <Intro />
       <ScrollWrap />
       <AnimatScrollText />
+      <ColThreeCard
+        className={Style.card}
+        setIsCardHovered={setIsCardHovered}
+      />
+      <AnimatScrollSlider
+        className={Style.curvedSvgText}
+        setIsHovered={setIsHovered}
+      />
       <Intro />
       <div
-        className={`cursor absolute w-[62px] h-[62px] bg-transparent pointer-events-none rounded-[50%] flex justify-center items-center transition-opacity duration-300 ease-in-out z-10`}
+        className={`cursor absolute w-[62px] h-[62px] bg-transparent pointer-events-none rounded-[50%] flex justify-center items-center transition duration-300 ease-in-out z-20`}
         style={{
           left: cursorPosition.x,
           top: cursorPosition.y,
@@ -71,8 +93,20 @@ export default function AsliOne() {
             cursorPosition.inside && !isHovered
               ? "rgb(253, 249, 207) 0px 0px 0px 1px inset"
               : "rgba(253, 249, 207, 0.527) 0px 0px 0px 1px inset",
+          width: cursorPosition.inside && !isCardHovered ? "" : "120px",
+          height: cursorPosition.inside && !isCardHovered ? "" : "120px",
+          backgroundColor:
+            cursorPosition.inside && !isCardHovered ? "" : "rgb(253, 249, 207)",
         }}
-      ></div>
+      >
+        <span
+          className={`${
+            isCardHovered ? "block" : "hidden"
+          } text-[14px] text-black font-nunitoSans font-semibold transition duration-300 ease-in-out `}
+        >
+          Explore Demo
+        </span>
+      </div>
     </>
   );
 }

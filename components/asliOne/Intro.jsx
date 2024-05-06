@@ -42,12 +42,12 @@ export default function Intro() {
   return (
     <>
       <section
-        className=" intro relative w-full py-[150px] px-[100px] bg-[#777777] "
+        className=" intro relative w-full pt-[150px] px-[100px] bg-[#777777] "
         id="asliIntro"
       >
         <div className="intro_content relative w-full max-w-[1320px] mx-auto text-center ">
           <h2
-            className={` text-white text-[75px] font-thin font-nanumMyeongjo tracking-[-2px] leading-[1.1] `}
+            className={` text-white text-[80px] font-thin font-nanumMyeongjo tracking-[-2px] leading-[1.1] `}
           >
             A unique{" "}
             <span className={` ${Style.animat_svg} text-[#fdf9cf] relative `}>

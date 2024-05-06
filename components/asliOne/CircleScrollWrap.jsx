@@ -177,23 +177,23 @@ const wheelCardsData = [
   },
   {
     id: 43,
-    imgUrl: "/asli/wheel_card_img_1.webp",
+    imgUrl: "/asli/wheel_card_img_2.webp",
   },
   {
     id: 44,
-    imgUrl: "/asli/wheel_card_img_1.webp",
+    imgUrl: "/asli/wheel_card_img_3.webp",
   },
   {
     id: 45,
-    imgUrl: "/asli/wheel_card_img_1.webp",
+    imgUrl: "/asli/wheel_card_img_4.webp",
   },
   {
     id: 46,
-    imgUrl: "/asli/wheel_card_img_1.webp",
+    imgUrl: "/asli/wheel_card_img_5.webp",
   },
   {
     id: 47,
-    imgUrl: "/asli/wheel_card_img_1.webp",
+    imgUrl: "/asli/wheel_card_img_6.webp",
   },
 ];
 
@@ -230,7 +230,7 @@ export default function CircleScrollWrap() {
     }
 
     setup();
-    window.addEventListener("resize", setup);
+    // window.addEventListener("resize", setup);
 
     const header = headerRef.current;
     if (header) {
@@ -251,7 +251,7 @@ export default function CircleScrollWrap() {
     }
 
     tl.current = gsap.to(wheel, {
-      rotation: -45,
+      rotation: -90,
       ease: "none",
       duration: images.length,
       scrollTrigger: {
@@ -262,7 +262,7 @@ export default function CircleScrollWrap() {
     });
 
     return () => {
-      window.removeEventListener("resize", setup);
+      // window.removeEventListener("resize", setup);
       if (header) {
         header.removeEventListener("click", closeCurrentCard);
       }
@@ -333,7 +333,7 @@ export default function CircleScrollWrap() {
   return (
     <>
       <section
-        className={` ${Style.slider_sectionOuter} relative overflow-hidden w-full bg-[#777777] pb-40 desktop:pb-[100px] `}
+        className={` ${Style.slider_sectionOuter} relative overflow-hidden w-full bg-[#777777] py-40 desktop:py-[100px] `}
       >
         <div className={` slider_section relative w-full h-[550px] `}>
           <div className={`${Style.wheel}`} ref={wheelRef}>
