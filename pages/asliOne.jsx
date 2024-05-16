@@ -9,6 +9,9 @@ import ScrollWrap from "../components/asliOne/CircleScrollWrap";
 import AnimatScrollText from "../components/asliOne/AnimatScrollText";
 import ColThreeCard from "../components/asliOne/ColThreeCard";
 import AnimatScrollSlider from "../components/asliOne/AnimatScrollSlider";
+import AnimatScrollSlider2 from "../components/asliOne/AnimatScrollSlider2";
+import AnimatScrollSlider3 from "../components/asliOne/AnimatScrollSlider3";
+import Loader from "../components/asliOne/Loader";
 
 const FontStyles = () => (
   <Head>
@@ -70,7 +73,15 @@ export default function AsliOne() {
     <>
       <FontStyles />
       <Banner className={Style.curvedSvgText} setIsHovered={setIsHovered} />
-      <Intro />
+      <Intro
+        className={`pt-[150px]`}
+        mainTitle1="A unique "
+        mainTitleSpan="AJAX & WebGL"
+        mainTitle2=" driven WordPress theme suitable for creative minds – designers,
+            photographers, creative agencies and production studios."
+        rxValue="48%"
+        ryValue="48%"
+      />
       <ScrollWrap />
       <AnimatScrollText />
       <ColThreeCard
@@ -81,7 +92,35 @@ export default function AsliOne() {
         className={Style.curvedSvgText}
         setIsHovered={setIsHovered}
       />
-      <Intro />
+      <AnimatScrollSlider2 />
+      <Intro
+        className={`pt-[150px]`}
+        mainTitle1="A unique "
+        mainTitleSpan="AJAX & WebGL"
+        mainTitle2=" driven WordPress theme suitable for creative minds – designers,
+            photographers, creative agencies and production studios."
+      />
+      <Intro
+        className={`py-[150px] `}
+        subtitle="( Rich Features & Infinite Possibilities )"
+        mainTitle1="Take your creativity to a whole new level with "
+        mainTitleSpan="Asli"
+        mainTitle2=" theme!"
+      />
+
+      <AnimatScrollSlider3
+        className={Style.curvedSvgText}
+        setIsHovered={setIsHovered}
+      />
+      <Intro
+        className={`py-[150px] z-[10] `}
+        subtitle="( Rich Features & Infinite Possibilities )"
+        mainTitle1="Take your creativity to a whole new level with "
+        mainTitleSpan="Asli"
+        mainTitle2=" theme!"
+        rxValue="40%"
+        ryValue="36%"
+      />
       <div
         className={`cursor absolute w-[62px] h-[62px] bg-transparent pointer-events-none rounded-[50%] flex justify-center items-center transition duration-300 ease-in-out z-20`}
         style={{
@@ -107,6 +146,7 @@ export default function AsliOne() {
           Explore Demo
         </span>
       </div>
+      <Loader />
     </>
   );
 }

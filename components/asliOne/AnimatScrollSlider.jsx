@@ -9,68 +9,81 @@ const scrollCardData = [
   {
     id: 1,
     imageUrl: "/asli/scrollWrap_img1.jpeg",
-    imageId: "scrollToElement",
+    // imageId: "scrollToElement",
     cardcounting: "01",
+    cardTitle: "Emptiness",
   },
   {
     id: 2,
     imageUrl: "/asli/scrollWrap_img2.webp",
     cardcounting: "02",
+    cardTitle: "Good Vibes Only",
   },
   {
     id: 3,
     imageUrl: "/asli/scrollWrap_img3.webp",
     cardcounting: "03",
+    cardTitle: "Working Remotely",
   },
   {
     id: 4,
     imageUrl: "/asli/scrollWrap_img4.webp",
     cardcounting: "04",
+    cardTitle: "Neon Lights",
   },
   {
     id: 5,
     imageUrl: "/asli/scrollWrap_img5.webp",
     cardcounting: "05",
+    cardTitle: "Island Adventure",
   },
   {
     id: 6,
     imageUrl: "/asli/scrollWrap_img6.webp",
     cardcounting: "06",
+    cardTitle: "Another World",
   },
   {
     id: 7,
     imageUrl: "/asli/scrollWrap_img7.webp",
     cardcounting: "07",
+    cardTitle: "Heart of Fire",
   },
   {
     id: 8,
     imageUrl: "/asli/scrollWrap_img8.jpeg",
     cardcounting: "08",
+    cardTitle: "Cozy House",
   },
   {
     id: 9,
     imageUrl: "/asli/scrollWrap_img9.webp",
     cardcounting: "09",
+    cardTitle: "Sensations",
   },
   {
     id: 10,
     imageUrl: "/asli/scrollWrap_img10.webp",
     cardcounting: "10",
+    cardTitle: "Knight Riders",
   },
   {
     id: 11,
     imageUrl: "/asli/scrollWrap_img11.jpeg",
     cardcounting: "11",
+    cardTitle: "Bird’s Eye",
   },
   {
     id: 12,
     imageUrl: "/asli/scrollWrap_img12.jpeg",
     cardcounting: "12",
+    cardTitle: "Bouqet",
   },
   {
     id: 13,
     imageUrl: "/asli/scrollWrap_img13.webp",
     cardcounting: "13",
+    cardTitle: "Handmade Shop",
   },
 ];
 
@@ -132,7 +145,7 @@ export default function AnimatScrollSlider({ curvedSvgText, setIsHovered }) {
   return (
     <>
       <section
-        className={`animat_scroll_section relative w-full overflow-hidden py-[150px] z-[49]`}
+        className={`animat_scroll_section relative w-full overflow-hidden pt-[150px] z-[20]`}
       >
         <div ref={triggerRef} className=" relative w-full z-10">
           <div
@@ -231,7 +244,7 @@ export default function AnimatScrollSlider({ curvedSvgText, setIsHovered }) {
                   <h3
                     className={` text-white text-[80px] font-nanumMyeongjo tracking-[-2px] leading-[1.2] w-full `}
                   >
-                    Emptiness
+                    {scrollCard.cardTitle}
                   </h3>
                   <ul className=" relative list-none flex flex-wrap justify-center mt-2 ">
                     <li className=" text-[#fdf9cf] text-[14px] font-nunitoSans font-bold uppercase ">
