@@ -337,9 +337,9 @@ export default function CircleScrollWrap() {
       >
         <div className={` slider_section relative w-full h-[550px] `}>
           <div className={`${Style.wheel}`} ref={wheelRef}>
-            {wheelCardsData.map((wheelCards) => (
+            {wheelCardsData.map((wheelCards, index) => (
               <div
-                key={wheelCards}
+                key={index}
                 className={`${Style.wheel__card} absolute top-0 left-0 w-[15%]  max-w-[302px] h-full max-h-[482px] desktop:max-w-[254px] desktop:h-[374px] rounded-[3200px] overflow-hidden mx-5`}
                 ref={(el) => imagesRef.current.push(el)}
               >
@@ -348,6 +348,7 @@ export default function CircleScrollWrap() {
                   height={800}
                   src={wheelCards.imgUrl}
                   className=" w-full h-full object-cover "
+                  alt="img"
                 />
               </div>
             ))}

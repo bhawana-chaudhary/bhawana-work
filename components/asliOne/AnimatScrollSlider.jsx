@@ -179,7 +179,7 @@ export default function AnimatScrollSlider({ curvedSvgText, setIsHovered }) {
                     <path id="text-arc" d="M 0, 53 A 53 53 0 1 1 1,53" />
                   </defs>
 
-                  <text font-size="14" className=" uppercase tracking-[2.5px] ">
+                  <text fontSize="14" className=" uppercase tracking-[2.5px] ">
                     <textPath href="#text-arc">
                       <tspan dx="5">Scroll Down</tspan>{" "}
                       <tspan dx="5"> → </tspan>

@@ -93,20 +93,6 @@ export default function AsliOne() {
         setIsHovered={setIsHovered}
       />
       <AnimatScrollSlider2 />
-      <Intro
-        className={`pt-[150px]`}
-        mainTitle1="A unique "
-        mainTitleSpan="AJAX & WebGL"
-        mainTitle2=" driven WordPress theme suitable for creative minds – designers,
-            photographers, creative agencies and production studios."
-      />
-      <Intro
-        className={`py-[150px] `}
-        subtitle="( Rich Features & Infinite Possibilities )"
-        mainTitle1="Take your creativity to a whole new level with "
-        mainTitleSpan="Asli"
-        mainTitle2=" theme!"
-      />
 
       <AnimatScrollSlider3
         className={Style.curvedSvgText}

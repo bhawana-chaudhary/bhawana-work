@@ -164,7 +164,7 @@ export default function AnimatScrollSlider3() {
                     cx="84"
                     cy="84"
                     stroke="#FFFFFF33"
-                    stroke-width="2"
+                    strokeWidth="2"
                     fill="transparent"
                   />
                 </svg>
@@ -184,7 +184,7 @@ export default function AnimatScrollSlider3() {
                     cx="84"
                     cy="84"
                     stroke="#fdf9cf"
-                    stroke-width="2.2"
+                    strokeWidth="2.2"
                     fill="none"
                     strokeDasharray={520}
                     strokeDashoffset={520}

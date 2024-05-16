@@ -179,33 +179,34 @@ export default function AnimatScrollSlider2() {
       },
     });
 
-    const handleScroll = () => {
-      const animationWrapHeight = animationWrap.offsetHeight;
-      const animationWrap2Height = animationWrap2.offsetHeight;
-      const totalHeight =
-        animationWrapHeight + animationWrap2Height - window.innerHeight;
-      const scrollY = window.scrollY;
+    // const element = document.querySelector(".animatscroll_slider2");
+    // const sectionHeight = document.querySelector(
+    //   ".animatscroll_slider2"
+    // )?.offsetHeight;
+    // const firstBoundings = element.getBoundingClientRect();
+    // let firstTop = firstBoundings.top;
+    // const handleScroll = () => {
+    //   let scroller = window.scrollY;
+    //   const sectionBoundings = element.getBoundingClientRect();
+    //   let distanceFromTop = sectionBoundings.top;
+    //   const checkpoint = firstTop + sectionHeight;
+    //   console.log("scroll", scroller);
+    //   console.log("distanceFromTop", distanceFromTop);
+    //   console.log("firstTop", firstTop);
+    //   console.log("sectionHeight", sectionHeight);
+    //   console.log("checkpoint", checkpoint);
+    //   // if (scroller > firstTop - 5 && scroller < checkpoint + 5) {
+    //   //   element.classList.add("sticky");
+    //   // } else {
+    //   //   element.classList.remove("sticky");
+    //   // }
+    // };
 
-      const isAnimationWrapFullyScrolled = scrollY >= animationWrapHeight;
-      const isAnimationWrap2FullyScrolled = scrollY >= animationWrap2Height;
-      const isAnimationComplete =
-        isAnimationWrapFullyScrolled && isAnimationWrap2FullyScrolled;
+    // window.addEventListener("scroll", handleScroll);
 
-      setIsFullScroll(isAnimationComplete);
-
-      const isAnimationWrapScrolled = scrollY >= animationWrap.offsetTop;
-      if (isAnimationWrapScrolled && !isAnimationComplete) {
-        sliderRef.current.classList.add(Style["isFullScroll"]);
-      } else {
-        sliderRef.current.classList.remove(Style["isFullScroll"]);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    // return () => {
+    //   window.removeEventListener("scroll", handleScroll);
+    // };
   }, []);
 
   // ---------
@@ -214,138 +215,136 @@ export default function AnimatScrollSlider2() {
     <>
       <section
         ref={sliderRef}
-        className={`${
-          Style.animatscroll_slider2
-        } animatscroll_slider2  w-full bg-[#777777] flex flex-wrap items-end overflow-hidden transition-all duration-300 ease-in-out ${
-          isFullScroll
-            ? "sticky top-0 left-0 z-10"
-            : "relative top-auto left-auto z-auto "
-        }`}
+        className={`${Style.animatscroll_slider2} animatscroll_slider2  bg-[#777777] h-[calc(100vh+1000px)]
+        `}
+        // ${isFullScroll? "sticky top-0 left-0 z-10": "relative top-auto left-auto z-auto "}
         // style={{
         //   position: isFullScroll ? "sticky" : "relative",
         //   top: isFullScroll ? "0" : "auto",
         //   zIndex: isFullScroll ? "10" : "auto",
         // }}
       >
-        <div
-          ref={bgImageWrapRef}
-          className={` ${Style.animation_slider2} bgImage_wrap relative w-[58%]  h-[100vh] flex overflow-hidden z-[1] `}
-        >
+        <div className="sticky w-full top-0 left-0 h-[100vh] flex flex-wrap items-end overflow-hidden transition-all duration-300 ease-in-out z-10">
           <div
-            ref={animationWrapRef}
-            className={`${Style.animation_wrap} animation_wrap w-[50%] pr-2 `}
+            ref={bgImageWrapRef}
+            className={` ${Style.animation_slider2} bgImage_wrap relative w-[58%]  h-[100vh] flex overflow-hidden z-[1] `}
           >
-            <div className={`relative w-full `}>
-              {animationImagedata.map((imageWrap, index) => (
-                <div className={` image w-full min-h-fit `} key={index}>
-                  <Image
-                    src={imageWrap.imgURL}
-                    width={400}
-                    height={800}
-                    alt="img"
-                    loading="lazy"
-                    className=" w-full h-full object-cover "
-                  />
-                </div>
-              ))}
-            </div>
-            <div className={`relative w-full `}>
-              {animationImagedata.map((imageWrap, index) => (
-                <div className={` image w-full min-h-fit `} key={index}>
-                  <Image
-                    src={imageWrap.imgURL}
-                    width={400}
-                    height={800}
-                    alt="img"
-                    loading="lazy"
-                    className=" w-full h-full object-cover "
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-          <div
-            ref={animationWrap2Ref}
-            className={` ${Style.animation_wrap}  ${Style.animation_wrap2} animation_wrap animation_wrap2 w-[50%] pl-2 `}
-          >
-            <div className={`relative w-full `}>
-              {animationImage2data.map((imageWrap2, index) => (
-                <div className={` image w-full min-h-fit `} key={index}>
-                  <Image
-                    src={imageWrap2.imgURL}
-                    width={400}
-                    height={800}
-                    alt="img"
-                    loading="lazy"
-                    className=" w-full h-full object-cover "
-                  />
-                </div>
-              ))}
-            </div>
-            <div className={`relative w-full `}>
-              {animationImage2data.map((imageWrap2, index) => (
-                <div className={` image w-full min-h-fit `} key={index}>
-                  <Image
-                    src={imageWrap2.imgURL}
-                    width={400}
-                    height={800}
-                    alt="img"
-                    loading="lazy"
-                    className=" w-full h-full object-cover "
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div
-          className={`text_wrapper w-[42%]  p-[100px]  z-[11] transition-all duration-500 ease-in-out `}
-        >
-          <h6
-            className={` text-[#fdf9cf] text-[22px] font-nunitoSans font-normal mb-3 `}
-          >
-            ( 13 templates in different styles )
-          </h6>
-          <h2
-            className={` text-white text-[78px] font-nanumMyeongjo font-light tracking-[-2px] leading-[1.2] w-full mb-8 `}
-          >
-            Inner & Blog Pages
-          </h2>
-          <div
-            className={` ${Style.animat_svg2} circleSvgImg relative w-full max-w-[168px] h-full max-h-[168px] `}
-          >
-            <svg height="168" width="168" xmlns="http://www.w3.org/2000/svg">
-              <circle
-                r="82"
-                cx="84"
-                cy="84"
-                stroke="#FFFFFF33"
-                stroke-width="2"
-                fill="transparent"
-              />
-            </svg>
-            <span className=" absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full px-2 text-center text-white text-[15px] font-nunitoSans ">
-              Explore Pages
-            </span>
-            <svg
-              ref={circleSvgOuter2Ref}
-              height="168"
-              width="168"
-              xmlns="http://www.w3.org/2001/svg"
-              className={` ${Style.circleSvg} circleSvg absolute  top-0 left-0 `}
+            <div
+              ref={animationWrapRef}
+              className={`${Style.animation_wrap} animation_wrap w-[50%] pr-2 `}
             >
-              <circle
-                ref={circleSvgRef}
-                r="82"
-                cx="84"
-                cy="84"
-                stroke="#fdf9cf"
-                stroke-width="2.2"
-                fill="none"
-                strokeDasharray={520}
-                strokeDashoffset={520}
-              />
-            </svg>
+              <div className={`relative w-full `}>
+                {animationImagedata.map((imageWrap, index) => (
+                  <div className={` image w-full min-h-fit `} key={index}>
+                    <Image
+                      src={imageWrap.imgURL}
+                      width={400}
+                      height={800}
+                      alt="img"
+                      loading="lazy"
+                      className=" w-full h-full object-cover "
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className={`relative w-full `}>
+                {animationImagedata.map((imageWrap, index) => (
+                  <div className={` image w-full min-h-fit `} key={index}>
+                    <Image
+                      src={imageWrap.imgURL}
+                      width={400}
+                      height={800}
+                      alt="img"
+                      loading="lazy"
+                      className=" w-full h-full object-cover "
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div
+              ref={animationWrap2Ref}
+              className={` ${Style.animation_wrap}  ${Style.animation_wrap2} animation_wrap animation_wrap2 w-[50%] pl-2 `}
+            >
+              <div className={`relative w-full `}>
+                {animationImage2data.map((imageWrap2, index) => (
+                  <div className={` image w-full min-h-fit `} key={index}>
+                    <Image
+                      src={imageWrap2.imgURL}
+                      width={400}
+                      height={800}
+                      alt="img"
+                      loading="lazy"
+                      className=" w-full h-full object-cover "
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className={`relative w-full `}>
+                {animationImage2data.map((imageWrap2, index) => (
+                  <div className={` image w-full min-h-fit `} key={index}>
+                    <Image
+                      src={imageWrap2.imgURL}
+                      width={400}
+                      height={800}
+                      alt="img"
+                      loading="lazy"
+                      className=" w-full h-full object-cover "
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div
+            className={`text_wrapper w-[42%]  p-[100px]  z-[11] transition-all duration-500 ease-in-out `}
+          >
+            <h6
+              className={` text-[#fdf9cf] text-[22px] font-nunitoSans font-normal mb-3 `}
+            >
+              ( 13 templates in different styles )
+            </h6>
+            <h2
+              className={` text-white text-[78px] font-nanumMyeongjo font-light tracking-[-2px] leading-[1.2] w-full mb-8 `}
+            >
+              Inner & Blog Pages
+            </h2>
+            <div
+              className={` ${Style.animat_svg2} circleSvgImg relative w-full max-w-[168px] h-full max-h-[168px] `}
+            >
+              <svg height="168" width="168" xmlns="http://www.w3.org/2000/svg">
+                <circle
+                  r="82"
+                  cx="84"
+                  cy="84"
+                  stroke="#FFFFFF33"
+                  strokeWidth="2"
+                  fill="transparent"
+                />
+              </svg>
+              <span className=" absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full px-2 text-center text-white text-[15px] font-nunitoSans ">
+                Explore Pages
+              </span>
+              <svg
+                ref={circleSvgOuter2Ref}
+                height="168"
+                width="168"
+                xmlns="http://www.w3.org/2001/svg"
+                className={` ${Style.circleSvg} circleSvg absolute  top-0 left-0 `}
+              >
+                <circle
+                  ref={circleSvgRef}
+                  r="82"
+                  cx="84"
+                  cy="84"
+                  stroke="#fdf9cf"
+                  strokeWidth="2.2"
+                  fill="none"
+                  strokeDasharray={520}
+                  strokeDashoffset={520}
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </section>

@@ -52,7 +52,7 @@ export default function Loader() {
             cy="300"
             r="297"
             stroke="#fdf9cf"
-            stroke-width="2.2"
+            strokeWidth="2.2"
             fill="none"
             style={{
               translate: "none",

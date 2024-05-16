@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent } from "react";
 
 export default function ClearDigitalForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -11,20 +11,20 @@ export default function ClearDigitalForm() {
 
     try {
       const formData = new FormData(event.currentTarget);
-      const response = await fetch('/api/submit', {
-        method: 'POST',
+      const response = await fetch("/api/submit", {
+        method: "POST",
         body: formData,
       });
 
       if (!response.ok) {
-        throw new Error('Failed to submit the data. Please try again.');
+        throw new Error("Failed to submit the data. Please try again.");
       }
 
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
     } catch (err) {
       setError(err.message); // Change 'error' to 'err' here
-      console.error(err);
+      // console.error(err);
     } finally {
       setIsLoading(false);
     }
@@ -43,6 +43,6 @@ export default function ClearDigitalForm() {
   //       </button>
   //     </form>
   //   </div>
-    
+
   // );
 }

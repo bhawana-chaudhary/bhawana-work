@@ -22,7 +22,7 @@ export default function AsliBanner({ curvedSvgText, setIsHovered }) {
       };
 
       if (!document.querySelector.fn) {
-        console.log("Lettering.js is required");
+        // console.log("Lettering.js is required");
         return;
       }
 
@@ -104,7 +104,7 @@ export default function AsliBanner({ curvedSvgText, setIsHovered }) {
 
         if (settings.fitText) {
           if (!document.querySelector.fn) {
-            console.log("FitText.js is required when using the fitText option");
+            // console.log("FitText.js is required when using the fitText option");
           } else {
             window.fitText(elem);
             window.addEventListener("resize", updateHeight);
@@ -730,7 +730,7 @@ export default function AsliBanner({ curvedSvgText, setIsHovered }) {
                 a 64,64 0 1,1 -128,0"
                 />
               </defs>
-              <text font-size="13" className=" uppercase tracking-[2.5px] ">
+              <text fontSize="13" className=" uppercase tracking-[2.5px] ">
                 <textPath xlinkHref="#curve">
                   <tspan dx="5">View Demo</tspan> <tspan dx="5"> → </tspan>
                   <tspan dx="5">View Demo</tspan>
