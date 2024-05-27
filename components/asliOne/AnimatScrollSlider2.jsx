@@ -297,7 +297,7 @@ export default function AnimatScrollSlider2() {
             </div>
           </div>
           <div
-            className={`text_wrapper w-[42%]  p-[100px]  z-[11] transition-all duration-500 ease-in-out `}
+            className={`text_wrapper w-[42%]  p-[100px]  z-[11] transition-all duration-500 ease-in-out desktop:px-10 `}
           >
             <h6
               className={` text-[#fdf9cf] text-[22px] font-nunitoSans font-normal mb-3 `}
