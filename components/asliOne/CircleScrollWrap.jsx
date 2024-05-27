@@ -333,16 +333,17 @@ export default function CircleScrollWrap() {
   return (
     <>
       <section
-        className={` ${Style.slider_sectionOuter} relative overflow-hidden w-full bg-[#777777] py-40 desktop:py-[100px] `}
+        className={` ${Style.slider_sectionOuter} relative overflow-hidden w-full bg-[#777777] py-40 desktop:py-[100px] tablet:pb-[80px] tablet:pt-[60px] md:pb-[60px] md:pt-[40px] `}
       >
         <div className={` slider_section relative w-full h-[550px] `}>
           <div className={`${Style.wheel}`} ref={wheelRef}>
             {wheelCardsData.map((wheelCards, index) => (
               <div
                 key={index}
-                className={`${Style.wheel__card} absolute top-0 left-0 w-[15%]  max-w-[302px] h-full max-h-[482px] desktop:max-w-[254px] desktop:h-[374px] rounded-[3200px] overflow-hidden mx-5`}
+                className={`${Style.wheel__card} absolute top-0 left-0 w-[15%]  max-w-[302px] h-full max-h-[482px]  rounded-[3200px] desktop:max-w-[254px] desktop:h-[374px] overflow-hidden mx-5 tablet:max-w-[200px] tablet:h-[320px] `}
                 ref={(el) => imagesRef.current.push(el)}
               >
+                {/* <div className=" relative w-full h-full  rounded-[3200px] "></div> */}
                 <Image
                   width={500}
                   height={800}

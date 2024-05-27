@@ -102,7 +102,12 @@
     stroke: currentColor;
     stroke-width: 1px;
     transform: rotate(-2deg);
-
+    @media (max-width: 991px) {
+      top: -4px;
+      left: -9px;
+      width: calc(100% + 18px);
+      height: calc(100% + 8px);
+    }
     ellipse {
       stroke-dashoffset: 1270;
       stroke-dasharray: 1270;
@@ -140,24 +145,6 @@
     }
   }
 
-  // &.hovered + .cursor {
-  //   transform: scale(1.5);
-  // }
-  // .cursor {
-  //   position: absolute;
-  //   width: 62px;
-  //   height: 62px;
-  //   background-color: transparent;
-  //   pointer-events: none;
-  //   border-radius: 50%;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   transition: opacity 0.3s ease-in-out;
-  //   z-index: 10;
-  //   opacity: 0;
-  //   box-shadow: rgb(253, 249, 207) 0px 0px 0px 1px inset;
-  // }
   .curvedSvg {
     animation: animatcurvedSvgText linear infinite;
     animation-duration: 14s;
@@ -189,6 +176,18 @@
     }
     100% {
       transform: rotate(-359deg);
+    }
+  }
+  &.curvedSvgText2 {
+    &.scroll-animation2 {
+      .curvedSvg {
+        animation-duration: 3s;
+      }
+      .rotateSvg {
+        svg {
+          animation-duration: 3s;
+        }
+      }
     }
   }
 }
@@ -226,7 +225,7 @@
     list-style: none;
     display: flex;
     animation: animatTextSlider linear infinite;
-    animation-duration: 80s;
+    animation-duration: 50s;
     // transition: animation-duration 0.3s ease-in-out;
     transition: animation-play-state 0.3s ease-in-out;
     &.animatwrap_hovered {
@@ -240,6 +239,22 @@
       font-weight: 100;
       color: #fff;
       margin: 0 40px;
+      @media (min-width: 992px) and (max-width: 1236px) {
+        font-size: 100px;
+        margin: 0 35px;
+      }
+      @media (min-width: 769px) and (max-width: 991px) {
+        font-size: 80px;
+        margin: 0 30px;
+      }
+      @media (min-width: 596px) and (max-width: 768px) {
+        font-size: 60px;
+        margin: 0 20px;
+      }
+      @media (max-width: 595px) {
+        font-size: 40px;
+        margin: 0 10px;
+      }
     }
   }
   @keyframes animatTextSlider {
@@ -257,6 +272,29 @@
     // 100% {
     //   transform: translateX(-100%);
     // }
+  }
+  &.animatScroll_Text2 {
+    .animation_item {
+      position: relative;
+      width: auto;
+      flex-shrink: 0;
+      list-style: none;
+      display: flex;
+      animation: animatTextSlider2 linear infinite;
+      animation-duration: 50s;
+      transition: animation-play-state 0.3s ease-in-out;
+      &.animatwrap_hovered {
+        animation-play-state: paused;
+      }
+    }
+    @keyframes animatTextSlider2 {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
   }
 }
 .scroll_imageCard_list {
@@ -317,6 +355,22 @@
     margin: auto;
     border-radius: 50%;
     overflow: hidden;
+    @media (min-width: 992px) and (max-width: 1236px) {
+      max-width: 500px;
+      height: 500px;
+    }
+    @media (min-width: 769px) and (max-width: 991px) {
+      max-width: 440px;
+      height: 440px;
+    }
+    @media (min-width: 596px) and (max-width: 768px) {
+      max-width: 380px;
+      height: 380px;
+    }
+    @media (max-width: 595px) {
+      max-width: 300px;
+      height: 300px;
+    }
     svg {
       display: block;
       width: 100%;
@@ -344,6 +398,19 @@
     }
     100% {
       stroke-dashoffset: 0;
+    }
+  }
+  .loader_text {
+    animation: loaderText 1s linear alternate;
+    @keyframes loaderText {
+      0% {
+        opacity: 0;
+        bottom: 80px;
+      }
+      100% {
+        opacity: 1;
+        bottom: 100px;
+      }
     }
   }
 }

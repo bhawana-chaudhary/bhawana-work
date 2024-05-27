@@ -41,10 +41,10 @@ export default function ColThreeCard({ card, setIsCardHovered }) {
     <>
       <section className="colThree_Card relative w-full bg-[#777777] px-5 ">
         <div className="col_three_card_wrap  relative w-full max-w-[1500px] mx-auto ">
-          <div className="card_wrapper relative w-mainRowWith40px ml-[-20px] flex flex-wrap ">
+          <div className="card_wrapper relative w-[calc(100%+40px)] ml-[-20px] flex flex-wrap desktop:w-[calc(100%+20px)] desktop:ml-[-10px] md:w-full md:ml-0 ">
             {colThreeData.map((colThree, index) => (
               <div
-                className={` ${Style.card} card relative w-threeCardWith40px mx-[20px] mt-14 group cursor-none `}
+                className={` ${Style.card} card relative w-[calc(33.33%-40px)] mx-[20px] mt-14 group cursor-none desktop:w-[calc(33.33%-20px)] desktop:mx-[10px] tablet:w-[calc(50%-40px)] md:w-full md:max-w-[480px] md:mx-auto `}
                 key={index}
                 onMouseEnter={() => setIsCardHovered(true)}
                 onMouseLeave={() => setIsCardHovered(false)}

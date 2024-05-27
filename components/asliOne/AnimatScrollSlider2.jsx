@@ -215,7 +215,7 @@ export default function AnimatScrollSlider2() {
     <>
       <section
         ref={sliderRef}
-        className={`${Style.animatscroll_slider2} animatscroll_slider2  bg-[#777777] h-[calc(100vh+1000px)]
+        className={`${Style.animatscroll_slider2} animatscroll_slider2 relative w-full  bg-[#777777] h-[calc(100vh+1000px)]
         `}
         // ${isFullScroll? "sticky top-0 left-0 z-10": "relative top-auto left-auto z-auto "}
         // style={{

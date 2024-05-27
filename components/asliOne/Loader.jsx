@@ -29,6 +29,8 @@ export default function Loader() {
     }
   }, [isLoading]);
 
+  // ------------
+
   return (
     <div
       className={`${Style.loader_container}  ${
@@ -38,7 +40,7 @@ export default function Loader() {
       <div className={`${Style.loader}`}>
         <div className="counter absolute  top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] ">
           <h2
-            className={`  text-[#fdf9cf] text-[190px] font-nanumMyeongjo tracking-[-2px] leading-[1.1]  `}
+            className={`  text-[#fdf9cf] text-[190px] font-nanumMyeongjo tracking-[-2px] leading-[1.1] desktop:text-[162px] tablet:text-[140px] phablet:text-[125px] sm:text-[90px]  `}
           >
             {count}
           </h2>
@@ -46,11 +48,13 @@ export default function Loader() {
         <svg
           xmlns="http://www.w3.org/2003/svg"
           className={` ${Style.circleSvg} circleSvg `}
+          width="100%"
+          height="100%"
         >
           <circle
-            cx="300"
-            cy="300"
-            r="297"
+            cx="50%"
+            cy="50%"
+            r="48%"
             stroke="#fdf9cf"
             strokeWidth="2.2"
             fill="none"
@@ -61,6 +65,11 @@ export default function Loader() {
             }}
           />
         </svg>
+      </div>
+      <div
+        className={`${Style.loader_text} loader_text absolute bottom-[100px] w-full text-center transition-all duration-1000 ease-in-out `}
+      >
+        <h6 className=" text-white text-[18px] md:text-[16px] ">Loading...</h6>
       </div>
     </div>
   );

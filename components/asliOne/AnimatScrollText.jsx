@@ -9,8 +9,8 @@ export default function AnimatScrollText() {
         <div
           className={`${Style.animatScroll_Text} relative bg-transparent overflow-hidden `}
         >
-          <div className="text_wrapper relative w-full max-w-[1520px] mx-auto text-center px-[100px] mb-8 ">
-            <h6 className=" text-[#fdf9cf] text-[20px] font-nunitoSans font-bold ">
+          <div className="text_wrapper relative w-full max-w-[1520px] mx-auto text-center px-[100px] mb-8 desktop:px-[80px] lg:px-[20px] md:mb-5 ">
+            <h6 className=" text-[#fdf9cf] text-[22px] font-nunitoSans font-bold  desktop:text-[20px] tablet:text-[18px] md:text-[16px] ">
               <span>(</span> WebGL Sliders & Infinite Scrolling <span>)</span>
             </h6>
           </div>

@@ -12,6 +12,8 @@ import AnimatScrollSlider from "../components/asliOne/AnimatScrollSlider";
 import AnimatScrollSlider2 from "../components/asliOne/AnimatScrollSlider2";
 import AnimatScrollSlider3 from "../components/asliOne/AnimatScrollSlider3";
 import Loader from "../components/asliOne/Loader";
+import ColFourCardIcon from "../components/asliOne/ColFourCardIcon";
+import Footer from "../components/asliOne/Footer";
 
 const FontStyles = () => (
   <Head>
@@ -27,6 +29,8 @@ const FontStyles = () => (
 export default function AsliOne() {
   const [isHovered, setIsHovered] = useState(false);
   const [isCardHovered, setIsCardHovered] = useState(false);
+  const [isIconCardHovered, setIsIconCardHovered] = useState(false);
+  const [isFooterCircleHovered, setIsFooterCircleHovered] = useState(false);
 
   const [cursorPosition, setCursorPosition] = useState({
     x: 0,
@@ -58,6 +62,8 @@ export default function AsliOne() {
     };
   }, []);
 
+  // ----------
+
   const [bodyBackgroundColor, setBodyBackgroundColor] = useState("#777777");
   const changeBodyBackgroundColor = (color) => {
     document.body.style.backgroundColor = color;
@@ -74,7 +80,7 @@ export default function AsliOne() {
       <FontStyles />
       <Banner className={Style.curvedSvgText} setIsHovered={setIsHovered} />
       <Intro
-        className={`pt-[150px]`}
+        className={`pt-[150px] desktop:pt-28 tablet:pt-24 phablet:pt-16 sm:pt-11 `}
         mainTitle1="A unique "
         mainTitleSpan="AJAX & WebGL"
         mainTitle2=" driven WordPress theme suitable for creative minds – designers,
@@ -99,7 +105,7 @@ export default function AsliOne() {
         setIsHovered={setIsHovered}
       />
       <Intro
-        className={`py-[150px] z-[10] `}
+        className={`pt-[150px] z-[10] desktop:pt-28 tablet:pt-24 phablet:pt-16 sm:pt-11 `}
         subtitle="( Rich Features & Infinite Possibilities )"
         mainTitle1="Take your creativity to a whole new level with "
         mainTitleSpan="Asli"
@@ -107,21 +113,63 @@ export default function AsliOne() {
         rxValue="40%"
         ryValue="36%"
       />
+      <ColFourCardIcon
+        className={Style.icon_outerWrap}
+        setIsIconCardHovered={setIsIconCardHovered}
+      />
+      <Footer
+        className={Style.hover_circle}
+        setIsFooterCircleHovered={setIsFooterCircleHovered}
+      />
       <div
-        className={`cursor absolute w-[62px] h-[62px] bg-transparent pointer-events-none rounded-[50%] flex justify-center items-center transition duration-300 ease-in-out z-20`}
+        className={`cursor absolute w-[62px] h-[62px] bg-transparent pointer-events-none rounded-[50%] flex justify-center items-center transition duration-300 ease-in-out z-20 
+        `}
+        // ${
+        //   cursorPosition.inside && isIconCardHovered
+        //     ? "!top-0 !left-0 !transform !scale-[2.2] !opacity-[1] w-full h-full border-[1px] border-solid border-[#fdf9cf] !pointer-events-auto "
+        //     : ""
+        // }
         style={{
           left: cursorPosition.x,
           top: cursorPosition.y,
-          opacity: cursorPosition.inside && !isHovered ? 1 : 0,
-          transform: cursorPosition.inside && !isHovered ? "" : "scale(2.2)",
+          // left:
+          //   cursorPosition.x && !isIconCardHovered
+          //     ? `${cursorPosition.x}px`
+          //     : "",
+          // top:
+          //   cursorPosition.y && !isIconCardHovered
+          //     ? `${cursorPosition.y}px`
+          //     : "",
+
+          opacity:
+            cursorPosition.inside && !isHovered && !isFooterCircleHovered
+              ? 1
+              : 0,
+          transform:
+            cursorPosition.inside && !isHovered && !isFooterCircleHovered
+              ? ""
+              : "scale(2.2)",
           boxShadow:
-            cursorPosition.inside && !isHovered
+            cursorPosition.inside && !isHovered && !isFooterCircleHovered
               ? "rgb(253, 249, 207) 0px 0px 0px 1px inset"
               : "rgba(253, 249, 207, 0.527) 0px 0px 0px 1px inset",
-          width: cursorPosition.inside && !isCardHovered ? "" : "120px",
-          height: cursorPosition.inside && !isCardHovered ? "" : "120px",
+          // width: cursorPosition.inside && !isCardHovered ? "" : "120px",
+          // height: cursorPosition.inside && !isCardHovered ? "" : "120px",
           backgroundColor:
             cursorPosition.inside && !isCardHovered ? "" : "rgb(253, 249, 207)",
+
+          width:
+            cursorPosition.inside && !isCardHovered && !isIconCardHovered
+              ? ""
+              : isCardHovered || isIconCardHovered
+              ? "152px"
+              : "120px",
+          height:
+            cursorPosition.inside && !isCardHovered && !isIconCardHovered
+              ? ""
+              : isCardHovered || isIconCardHovered
+              ? "152px"
+              : "120px",
         }}
       >
         <span
