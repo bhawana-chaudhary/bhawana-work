@@ -46,20 +46,53 @@ export default function AnimatScrollSlider3() {
   const circleSvgOuterRef = useRef(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    const matchMedia = gsap.matchMedia();
 
-    const animationSection = sectionRef.current;
-    const animationSection2 = section2Ref.current;
-    const circleSvg2 = circleSvg2Ref.current;
-    const circleSvgOuter = circleSvgOuterRef.current;
+    matchMedia.add("(min-width: 992px)", () => {
+      gsap.registerPlugin(ScrollTrigger);
 
-    gsap.to(
-      animationSection,
-      ({
+      const animationSection = sectionRef.current;
+      const animationSection2 = section2Ref.current;
+      const circleSvg2 = circleSvg2Ref.current;
+      const circleSvgOuter = circleSvgOuterRef.current;
+
+      gsap.to(
+        animationSection,
+        ({
+          translateX: 0,
+        },
+        {
+          translateX: "-1700px",
+          ease: "none",
+          duration: 1,
+          scrollTrigger: {
+            trigger: triggerRef.current,
+            start: "top top",
+            end: "2000 top",
+            scrub: 0.8,
+            pin: true,
+            // onUpdate: (self) => {
+            //   const progress = 1 - self.progress; // Reverse the progress
+            //   const offset = 1270 * progress; // Calculate stroke dash offset based on scroll progress
+            //   circleSvg2.style.strokeDashoffset = offset;
+            // },
+            onUpdate: (self) => {
+              const scrollDistance = self.start - window.scrollY;
+              const progress = 1 - scrollDistance / (self.start - self.end);
+              const offset = 520 * progress;
+              circleSvg2.style.strokeDashoffset = offset;
+              // if (offset === 0) {
+              //   slider2Ref.current.classList.remove(Style["isFullScroll"]);
+              // }
+              const rotation = -180 * progress;
+              circleSvgOuter.style.transform = `rotate(${rotation}deg)`;
+            },
+          },
+        })
+      );
+
+      gsap.to(animationSection2, {
         translateX: 0,
-      },
-      {
-        translateX: "-1700px",
         ease: "none",
         duration: 1,
         scrollTrigger: {
@@ -67,62 +100,38 @@ export default function AnimatScrollSlider3() {
           start: "top top",
           end: "2000 top",
           scrub: 0.8,
-          pin: true,
-          // onUpdate: (self) => {
-          //   const progress = 1 - self.progress; // Reverse the progress
-          //   const offset = 1270 * progress; // Calculate stroke dash offset based on scroll progress
-          //   circleSvg2.style.strokeDashoffset = offset;
-          // },
-          onUpdate: (self) => {
-            const scrollDistance = self.start - window.scrollY;
-            const progress = 1 - scrollDistance / (self.start - self.end);
-            const offset = 520 * progress;
-            circleSvg2.style.strokeDashoffset = offset;
-            // if (offset === 0) {
-            //   slider2Ref.current.classList.remove(Style["isFullScroll"]);
-            // }
-            const rotation = -180 * progress;
-            circleSvgOuter.style.transform = `rotate(${rotation}deg)`;
-          },
+          animation: gsap.fromTo(
+            animationSection2,
+            { translateX: "-1700px" },
+            { translateX: 0 }
+          ),
         },
-      })
-    );
+      });
 
-    gsap.to(animationSection2, {
-      translateX: 0,
-      ease: "none",
-      duration: 1,
-      scrollTrigger: {
-        trigger: triggerRef.current,
-        start: "top top",
-        end: "2000 top",
-        scrub: 0.8,
-        animation: gsap.fromTo(
-          animationSection2,
-          { translateX: "-1700px" },
-          { translateX: 0 }
-        ),
-      },
+      const handleScroll = () => {
+        const animationSectionHeight = animationSection.offsetHeight;
+        const animationSection2Height = animationSection2.offsetHeight;
+        const scrollY = window.scrollY;
+        const isAnimationSectionFullyScrolled =
+          scrollY >= animationSectionHeight;
+        const isAnimationSection2FullyScrolled =
+          scrollY >= animationSection2Height;
+
+        setIsFullScroll(
+          isAnimationSectionFullyScrolled && isAnimationSection2FullyScrolled
+        );
+      };
+
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        window.removeEventListener("scroll", handleScroll);
+      };
     });
 
-    const handleScroll = () => {
-      const animationSectionHeight = animationSection.offsetHeight;
-      const animationSection2Height = animationSection2.offsetHeight;
-      const scrollY = window.scrollY;
-      const isAnimationSectionFullyScrolled = scrollY >= animationSectionHeight;
-      const isAnimationSection2FullyScrolled =
-        scrollY >= animationSection2Height;
-
-      setIsFullScroll(
-        isAnimationSectionFullyScrolled && isAnimationSection2FullyScrolled
-      );
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      window.removeEventListener("scroll", handleScroll);
+      matchMedia.revert();
     };
   }, []);
 
@@ -139,50 +148,50 @@ export default function AnimatScrollSlider3() {
             className=" relative w-full overflow-hidden flex flex-wrap items-end  z-10"
           >
             <div
-              className={`text_wrapper w-[42%]  p-[100px]  z-[11] transition-all duration-500 ease-in-out `}
+              className={`text_wrapper w-[42%]  p-[100px]  z-[11] transition-all duration-500 ease-in-out xl:px-10 lg:w-full tablet:py-20 phablet:py-16 sm:py-11  `}
             >
               <h6
-                className={` text-[#fdf9cf] text-[22px] font-nunitoSans font-normal mb-3 `}
+                className={` text-[#fdf9cf] text-[22px] font-nunitoSans font-normal mb-3  desktop:text-[20px] tablet:text-[18px] md:text-[16px] `}
               >
                 ( 13 templates in different styles )
               </h6>
               <h2
-                className={` text-white text-[78px] font-nanumMyeongjo font-light tracking-[-2px] leading-[1.2] w-full mb-8 `}
+                className={` text-white text-[78px] font-nanumMyeongjo font-light tracking-[-2px] leading-[1.2] w-full mb-8 desktop:text-[66px] tablet:text-[56px] phablet:text-[46px] sm:text-[40px] sm:mb-5 `}
               >
                 Inner & Blog Pages
               </h2>
               <div
-                className={` relative w-full max-w-[168px] h-full max-h-[168px] `}
+                className={` relative w-full max-w-[168px] h-full max-h-[168px] md:max-w-[130px] md:max-h-[100%] md:h-[130px] `}
               >
                 <svg
-                  height="168"
-                  width="168"
+                  height="100%"
+                  width="100%"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <circle
-                    r="82"
-                    cx="84"
-                    cy="84"
+                    r="46%"
+                    cx="50%"
+                    cy="50%"
                     stroke="#FFFFFF33"
                     strokeWidth="2"
                     fill="transparent"
                   />
                 </svg>
-                <span className=" absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full px-2 text-center text-white text-[15px] font-nunitoSans ">
+                <span className=" absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full px-2 text-center text-white text-[15px] font-nunitoSans md:text-[13px] ">
                   Explore Pages
                 </span>
                 <svg
                   ref={circleSvgOuterRef}
-                  height="168"
-                  width="168"
+                  height="100%"
+                  width="100%"
                   xmlns="http://www.w3.org/2001/svg"
                   className={` ${Style.circleSvg} circleSvg absolute  top-0 left-0  `}
                 >
                   <circle
                     ref={circleSvg2Ref}
-                    r="82"
-                    cx="84"
-                    cy="84"
+                    r="46%"
+                    cx="50%"
+                    cy="50%"
                     stroke="#fdf9cf"
                     strokeWidth="2.2"
                     fill="none"
@@ -192,14 +201,14 @@ export default function AnimatScrollSlider3() {
                 </svg>
               </div>
             </div>
-            <div className=" relative w-[58%] overflow-hidden ">
+            <div className=" relative w-[58%] overflow-hidden  lg:w-full lg:px-4 lg:flex lg:flex-wrap ">
               <div
                 ref={sectionRef}
-                className="animat_scroll_section_inner  mb-6 relative w-full flex flex-row "
+                className="animat_scroll_section_inner  mb-6 relative w-full flex flex-row tablet:w-[50%] tablet:pr-2 lg:flex-col lg:mb-0 "
               >
                 {scrollCardData.map((scrollCard) => (
                   <div
-                    className="scroll_image_card relative w-auto min-w-fit  h-[50vh] mr-6 flex items-end overflow-hidden z-[1] "
+                    className="scroll_image_card relative w-auto min-w-fit  h-[50vh] mr-6 flex items-end overflow-hidden z-[1]  lg:h-auto lg:mr-0 lg:mb-4 "
                     key={scrollCard.id}
                   >
                     <div className="img_wrap w-full h-full  z-[-1] ">
@@ -216,11 +225,11 @@ export default function AnimatScrollSlider3() {
               </div>
               <div
                 ref={section2Ref}
-                className="animat_scroll_section_inner relative  w-full flex flex-row  "
+                className="animat_scroll_section_inner relative  w-full flex flex-row tablet:w-[50%] tablet:pl-2 lg:flex-col  "
               >
                 {scrollCard2Data.map((scrollCard2) => (
                   <div
-                    className="scroll_image_card relative w-auto min-w-fit  h-[50vh] mr-6 flex items-end overflow-hidden z-[1] "
+                    className="scroll_image_card relative w-auto min-w-fit  h-[50vh] mr-6 flex items-end overflow-hidden z-[1]  lg:h-auto lg:mr-0 lg:mb-4 "
                     key={scrollCard2.id}
                   >
                     <div className="img_wrap w-full h-full  z-[-1] ">

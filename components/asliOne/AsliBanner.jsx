@@ -797,7 +797,7 @@ export default function AsliBanner({ curvedSvgText, setIsHovered }) {
               viewBox="0 0 170 170"
               width="170"
               height="170"
-              className={` ${Style.curvedSvg} `}
+              className={` ${Style.curvedSvg} md:hidden `}
             >
               <defs>
                 <path
@@ -819,6 +819,29 @@ export default function AsliBanner({ curvedSvgText, setIsHovered }) {
                 </textPath>
               </text>
             </svg>
+
+            <svg
+              id="curved1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="140"
+              height="140"
+              viewBox="-70 -70 140 140"
+              className={` ${Style.curvedSvg} hidden md:block `}
+            >
+              <defs>
+                <path id="curve_svg" d="M 0, 58 A 58 58 0 1 1 1,58" />
+              </defs>
+              <text fontSize="12" className=" uppercase tracking-[2.5px] ">
+                <textPath xlinkHref="#curve_svg">
+                  <tspan dx="2">View Demo</tspan> <tspan dx="2"> → </tspan>
+                  <tspan dx="2">View Demo</tspan>
+                  <tspan dx="2"> → </tspan>
+                  <tspan dx="2">View Demo</tspan>
+                  <tspan dx="2"> → </tspan>
+                </textPath>
+              </text>
+            </svg>
+
             <div
               className={`${Style.rotateSvg} absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]`}
             >

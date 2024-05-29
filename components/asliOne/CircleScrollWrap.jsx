@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { Flip } from "gsap/dist/Flip";
@@ -204,85 +204,22 @@ export default function CircleScrollWrap() {
   let currentCardRef = useRef(null);
   let tl = useRef(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, Flip);
-
-    const wheel = wheelRef.current;
-    const images = imagesRef.current;
-
-    function setup() {
-      if (tl.current) {
-        tl.current.kill();
-      }
-
-      let radius = wheel.offsetWidth / 2,
-        center = radius,
-        slice = 360 / images.length,
-        DEG2RAD = Math.PI / 180;
-
-      gsap.set(images, {
-        x: (i) => center + radius * Math.sin(i * slice * DEG2RAD),
-        y: (i) => center - radius * Math.cos(i * slice * DEG2RAD),
-        rotation: (i) => i * slice,
-        xPercent: -50,
-        yPercent: -50,
-      });
-    }
-
-    setup();
-    // window.addEventListener("resize", setup);
-
-    const header = headerRef.current;
-    if (header) {
-      header.addEventListener("click", closeCurrentCard);
-    }
-
-    function closeCurrentCard() {
-      if (currentCardRef.current) {
-        let img = header.querySelector("img"),
-          state = Flip.getState(img);
-        currentCardRef.current.appendChild(img);
-        Flip.from(state, {
-          ease: "power1.inOut",
-          scale: true,
-        });
-        currentCardRef.current = null;
-      }
-    }
-
-    tl.current = gsap.to(wheel, {
-      rotation: -90,
-      ease: "none",
-      duration: images.length,
-      scrollTrigger: {
-        start: 0,
-        end: "max",
-        scrub: 1,
-      },
-    });
-
-    return () => {
-      // window.removeEventListener("resize", setup);
-      if (header) {
-        header.removeEventListener("click", closeCurrentCard);
-      }
-    };
-  }, []);
-
   // useEffect(() => {
   //   gsap.registerPlugin(ScrollTrigger, Flip);
 
   //   const wheel = wheelRef.current;
   //   const images = imagesRef.current;
-  //   const header = headerRef.current;
-
-  //   gsap.to(".arrow", { y: 5, ease: "power1.inOut", repeat: -1, yoyo: true });
 
   //   function setup() {
+  //     if (tl.current) {
+  //       tl.current.kill();
+  //     }
+
   //     let radius = wheel.offsetWidth / 2,
   //       center = radius,
   //       slice = 360 / images.length,
   //       DEG2RAD = Math.PI / 180;
+
   //     gsap.set(images, {
   //       x: (i) => center + radius * Math.sin(i * slice * DEG2RAD),
   //       y: (i) => center - radius * Math.cos(i * slice * DEG2RAD),
@@ -293,22 +230,12 @@ export default function CircleScrollWrap() {
   //   }
 
   //   setup();
+  //   // window.addEventListener("resize", setup);
 
-  //   window.addEventListener("resize", setup);
-
-  //   gsap.to(wheel, {
-  //     rotation: -45,
-  //     ease: "none",
-  //     duration: images.length,
-  //     scrollTrigger: {
-  //       start: 0,
-  //       end: "max",
-  //       scrub: 1,
-  //     },
-  //   });
-
-  //   // Check if headerRef.current exists before adding event listener
-  //   header?.addEventListener("click", closeCurrentCard);
+  //   const header = headerRef.current;
+  //   if (header) {
+  //     header.addEventListener("click", closeCurrentCard);
+  //   }
 
   //   function closeCurrentCard() {
   //     if (currentCardRef.current) {
@@ -323,24 +250,131 @@ export default function CircleScrollWrap() {
   //     }
   //   }
 
+  //   tl.current = gsap.to(wheel, {
+  //     rotation: -90,
+  //     ease: "none",
+  //     duration: images.length,
+  //     scrollTrigger: {
+  //       start: 0,
+  //       end: "max",
+  //       scrub: 1,
+  //     },
+  //   });
+
   //   return () => {
-  //     window.removeEventListener("resize", setup);
+  //     // window.removeEventListener("resize", setup);
   //     if (header) {
   //       header.removeEventListener("click", closeCurrentCard);
   //     }
   //   };
   // }, []);
+
+  const [rotation, setRotation] = useState(-90); // State for rotation value
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const wheel = wheelRef.current;
+    const images = imagesRef.current;
+
+    function setup() {
+      let radius = wheel.offsetWidth / 2,
+        center = radius,
+        slice = 360 / images.length,
+        DEG2RAD = Math.PI / 180;
+
+      gsap.set(images, {
+        x: (i) => center + radius * Math.sin(i * slice * DEG2RAD),
+        y: (i) => center - radius * Math.cos(i * slice * DEG2RAD),
+        rotation: (i) => i * slice,
+        xPercent: -50,
+        yPercent: -50,
+      });
+
+      // Check window width and set rotation value accordingly
+      if (window.innerWidth <= 991) {
+        setRotation(-180);
+      } else {
+        setRotation(-90);
+      }
+    }
+
+    setup();
+
+    const header = headerRef.current;
+    if (header) {
+      header.addEventListener("click", closeCurrentCard);
+    }
+
+    function closeCurrentCard() {
+      if (currentCardRef.current) {
+        let img = header.querySelector("img"),
+          state = gsap.utils.getCache(img);
+        currentCardRef.current.appendChild(img);
+        gsap.from(state, {
+          ease: "power1.inOut",
+          scale: true,
+        });
+        currentCardRef.current = null;
+      }
+    }
+
+    const handleResize = () => {
+      if (window.innerWidth <= 991) {
+        setRotation(-180);
+      } else {
+        setRotation(-90);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      if (header) {
+        header.removeEventListener("click", closeCurrentCard);
+      }
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (tl.current) {
+      tl.current.kill();
+    }
+
+    const wheel = wheelRef.current;
+
+    tl.current = gsap.to(wheel, {
+      rotation: rotation,
+      ease: "none",
+      duration: wheelCardsData.length,
+      scrollTrigger: {
+        start: 0,
+        end: "max",
+        scrub: 1,
+      },
+    });
+
+    return () => {
+      if (tl.current) {
+        tl.current.kill();
+      }
+    };
+  }, [rotation]);
+
   return (
     <>
       <section
-        className={` ${Style.slider_sectionOuter} relative overflow-hidden w-full bg-[#777777] py-40 desktop:py-[100px] tablet:pb-[80px] tablet:pt-[60px] md:pb-[60px] md:pt-[40px] `}
+        className={` ${Style.slider_sectionOuter} relative overflow-hidden w-full bg-[#777777] py-40 desktop:py-[100px] tablet:pb-[80px] tablet:pt-0 md:pb-[60px] phablet:pt-[40px] sm:pt-0 `}
       >
-        <div className={` slider_section relative w-full h-[550px] `}>
+        <div
+          className={` slider_section relative w-full h-[550px] tablet:h-[500px] phablet:h-[390px] sm:h-[320px] `}
+        >
           <div className={`${Style.wheel}`} ref={wheelRef}>
             {wheelCardsData.map((wheelCards, index) => (
               <div
                 key={index}
-                className={`${Style.wheel__card} absolute top-0 left-0 w-[15%]  max-w-[302px] h-full max-h-[482px]  rounded-[3200px] desktop:max-w-[254px] desktop:h-[374px] overflow-hidden mx-5 tablet:max-w-[200px] tablet:h-[320px] `}
+                className={`${Style.wheel__card} absolute top-0 left-0 w-[15%]  max-w-[5%] h-full max-h-[8%]  rounded-[3200px] overflow-hidden mx-5 `}
                 ref={(el) => imagesRef.current.push(el)}
               >
                 {/* <div className=" relative w-full h-full  rounded-[3200px] "></div> */}

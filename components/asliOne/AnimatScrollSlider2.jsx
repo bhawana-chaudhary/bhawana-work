@@ -136,77 +136,56 @@ export default function AnimatScrollSlider2() {
   // }, []);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    const matchMedia = gsap.matchMedia();
 
-    const animationWrap = animationWrapRef.current;
-    const animationWrap2 = animationWrap2Ref.current;
-    const circleSvg = circleSvgRef.current;
-    const circleSvgOuter2 = circleSvgOuter2Ref.current;
+    matchMedia.add("(min-width: 992px)", () => {
+      gsap.registerPlugin(ScrollTrigger);
 
-    gsap.to(animationWrap, {
-      y: -2900,
-      ease: "none",
-      scrollTrigger: {
-        trigger: bgImageWrapRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 1,
-        animation: gsap.fromTo(animationWrap2, { y: 0 }, { y: -2900 }),
-        onUpdate: (self) => {
-          const scrollDistance = self.start - window.scrollY;
-          const progress = 1 - scrollDistance / (self.start - self.end);
-          const offset = 520 * progress;
-          circleSvg.style.strokeDashoffset = offset;
+      const animationWrap = animationWrapRef.current;
+      const animationWrap2 = animationWrap2Ref.current;
+      const circleSvg = circleSvgRef.current;
+      const circleSvgOuter2 = circleSvgOuter2Ref.current;
 
-          const rotation = -180 * progress;
-          circleSvgOuter2.style.transform = `rotate(${rotation}deg)`;
+      gsap.to(animationWrap, {
+        y: -2900,
+        ease: "none",
+        scrollTrigger: {
+          trigger: bgImageWrapRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1,
+          animation: gsap.fromTo(animationWrap2, { y: 0 }, { y: -2900 }),
+          onUpdate: (self) => {
+            const scrollDistance = self.start - window.scrollY;
+            const progress = 1 - scrollDistance / (self.start - self.end);
+            const offset = 520 * progress;
+            circleSvg.style.strokeDashoffset = offset;
+
+            const rotation = -180 * progress;
+            circleSvgOuter2.style.transform = `rotate(${rotation}deg)`;
+          },
         },
-      },
-      onComplete: () => {
-        setIsFullScroll(false);
-      },
+        onComplete: () => {
+          setIsFullScroll(false);
+        },
+      });
+      gsap.to(animationWrap2, {
+        y: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: bgImageWrapRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1,
+          // animation: gsap.fromTo(animationWrap2, { y: -2100 }, { y: 0 }),
+          animation: gsap.fromTo(animationWrap2, { y: -2900 }, { y: 0 }),
+        },
+      });
     });
-    gsap.to(animationWrap2, {
-      y: 0,
-      ease: "none",
-      scrollTrigger: {
-        trigger: bgImageWrapRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 1,
-        // animation: gsap.fromTo(animationWrap2, { y: -2100 }, { y: 0 }),
-        animation: gsap.fromTo(animationWrap2, { y: -2900 }, { y: 0 }),
-      },
-    });
 
-    // const element = document.querySelector(".animatscroll_slider2");
-    // const sectionHeight = document.querySelector(
-    //   ".animatscroll_slider2"
-    // )?.offsetHeight;
-    // const firstBoundings = element.getBoundingClientRect();
-    // let firstTop = firstBoundings.top;
-    // const handleScroll = () => {
-    //   let scroller = window.scrollY;
-    //   const sectionBoundings = element.getBoundingClientRect();
-    //   let distanceFromTop = sectionBoundings.top;
-    //   const checkpoint = firstTop + sectionHeight;
-    //   console.log("scroll", scroller);
-    //   console.log("distanceFromTop", distanceFromTop);
-    //   console.log("firstTop", firstTop);
-    //   console.log("sectionHeight", sectionHeight);
-    //   console.log("checkpoint", checkpoint);
-    //   // if (scroller > firstTop - 5 && scroller < checkpoint + 5) {
-    //   //   element.classList.add("sticky");
-    //   // } else {
-    //   //   element.classList.remove("sticky");
-    //   // }
-    // };
-
-    // window.addEventListener("scroll", handleScroll);
-
-    // return () => {
-    //   window.removeEventListener("scroll", handleScroll);
-    // };
+    return () => {
+      matchMedia.revert();
+    };
   }, []);
 
   // ---------
@@ -215,27 +194,23 @@ export default function AnimatScrollSlider2() {
     <>
       <section
         ref={sliderRef}
-        className={`${Style.animatscroll_slider2} animatscroll_slider2 relative w-full  bg-[#777777] h-[calc(100vh+1000px)]
-        `}
-        // ${isFullScroll? "sticky top-0 left-0 z-10": "relative top-auto left-auto z-auto "}
-        // style={{
-        //   position: isFullScroll ? "sticky" : "relative",
-        //   top: isFullScroll ? "0" : "auto",
-        //   zIndex: isFullScroll ? "10" : "auto",
-        // }}
+        className={`${Style.animatscroll_slider2} animatscroll_slider2 relative w-full  bg-[#777777] h-[calc(100vh+1000px)] lg:h-auto desktop:h-[100vh] `}
       >
-        <div className="sticky w-full top-0 left-0 h-[100vh] flex flex-wrap items-end overflow-hidden transition-all duration-300 ease-in-out z-10">
+        <div className="sticky w-full top-0 left-0 h-[100vh] flex flex-wrap items-end overflow-hidden transition-all duration-300 ease-in-out z-10 lg:relative lg:top-auto lg:left-auto lg:h-auto ">
           <div
             ref={bgImageWrapRef}
-            className={` ${Style.animation_slider2} bgImage_wrap relative w-[58%]  h-[100vh] flex overflow-hidden z-[1] `}
+            className={` ${Style.animation_slider2} bgImage_wrap relative w-[58%]  h-[100vh] flex overflow-hidden z-[1] lg:order-2 lg:w-full lg:h-auto lg:px-4 sm:flex sm:flex-wrap `}
           >
             <div
               ref={animationWrapRef}
-              className={`${Style.animation_wrap} animation_wrap w-[50%] pr-2 `}
+              className={`${Style.animation_wrap} animation_wrap w-[50%] pr-2 sm:w-full sm:pr-0 `}
             >
               <div className={`relative w-full `}>
                 {animationImagedata.map((imageWrap, index) => (
-                  <div className={` image w-full min-h-fit `} key={index}>
+                  <div
+                    className={` image w-full min-h-fit lg:mb-4 `}
+                    key={index}
+                  >
                     <Image
                       src={imageWrap.imgURL}
                       width={400}
@@ -247,7 +222,7 @@ export default function AnimatScrollSlider2() {
                   </div>
                 ))}
               </div>
-              <div className={`relative w-full `}>
+              <div className={`relative w-full lg:hidden `}>
                 {animationImagedata.map((imageWrap, index) => (
                   <div className={` image w-full min-h-fit `} key={index}>
                     <Image
@@ -264,11 +239,14 @@ export default function AnimatScrollSlider2() {
             </div>
             <div
               ref={animationWrap2Ref}
-              className={` ${Style.animation_wrap}  ${Style.animation_wrap2} animation_wrap animation_wrap2 w-[50%] pl-2 `}
+              className={` ${Style.animation_wrap}  ${Style.animation_wrap2} animation_wrap animation_wrap2 w-[50%] pl-2 sm:w-full sm:pl-0 `}
             >
               <div className={`relative w-full `}>
                 {animationImage2data.map((imageWrap2, index) => (
-                  <div className={` image w-full min-h-fit `} key={index}>
+                  <div
+                    className={` image w-full min-h-fit lg:mb-4 `}
+                    key={index}
+                  >
                     <Image
                       src={imageWrap2.imgURL}
                       width={400}
@@ -280,7 +258,7 @@ export default function AnimatScrollSlider2() {
                   </div>
                 ))}
               </div>
-              <div className={`relative w-full `}>
+              <div className={`relative w-full lg:hidden `}>
                 {animationImage2data.map((imageWrap2, index) => (
                   <div className={` image w-full min-h-fit `} key={index}>
                     <Image
@@ -297,46 +275,50 @@ export default function AnimatScrollSlider2() {
             </div>
           </div>
           <div
-            className={`text_wrapper w-[42%]  p-[100px]  z-[11] transition-all duration-500 ease-in-out desktop:px-10 `}
+            className={`text_wrapper w-[42%]  p-[100px]  z-[11] transition-all duration-500 ease-in-out xl:px-10 lg:order-1 lg:w-full tablet:py-20 phablet:py-16 sm:py-11 `}
           >
             <h6
-              className={` text-[#fdf9cf] text-[22px] font-nunitoSans font-normal mb-3 `}
+              className={` text-[#fdf9cf] text-[22px] font-nunitoSans font-normal mb-3 desktop:text-[20px] tablet:text-[18px] md:text-[16px] `}
             >
               ( 13 templates in different styles )
             </h6>
             <h2
-              className={` text-white text-[78px] font-nanumMyeongjo font-light tracking-[-2px] leading-[1.2] w-full mb-8 `}
+              className={` text-white text-[78px] font-nanumMyeongjo font-light tracking-[-2px] leading-[1.2] w-full mb-8  desktop:text-[66px] tablet:text-[56px] phablet:text-[46px] sm:text-[40px] sm:mb-5 `}
             >
               Inner & Blog Pages
             </h2>
             <div
-              className={` ${Style.animat_svg2} circleSvgImg relative w-full max-w-[168px] h-full max-h-[168px] `}
+              className={` ${Style.animat_svg2} circleSvgImg relative w-full max-w-[168px] h-full max-h-[168px] md:max-w-[130px] md:max-h-[100%] md:h-[130px] `}
             >
-              <svg height="168" width="168" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                height="100%"
+                width="100%"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <circle
-                  r="82"
-                  cx="84"
-                  cy="84"
+                  r="46%"
+                  cx="50%"
+                  cy="50%"
                   stroke="#FFFFFF33"
                   strokeWidth="2"
                   fill="transparent"
                 />
               </svg>
-              <span className=" absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full px-2 text-center text-white text-[15px] font-nunitoSans ">
+              <span className=" absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full px-2 text-center text-white text-[15px] font-nunitoSans md:text-[13px] ">
                 Explore Pages
               </span>
               <svg
                 ref={circleSvgOuter2Ref}
-                height="168"
-                width="168"
+                height="100%"
+                width="100%"
                 xmlns="http://www.w3.org/2001/svg"
                 className={` ${Style.circleSvg} circleSvg absolute  top-0 left-0 `}
               >
                 <circle
                   ref={circleSvgRef}
-                  r="82"
-                  cx="84"
-                  cy="84"
+                  r="46%"
+                  cx="50%"
+                  cy="50%"
                   stroke="#fdf9cf"
                   strokeWidth="2.2"
                   fill="none"
